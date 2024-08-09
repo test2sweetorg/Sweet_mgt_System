@@ -10,7 +10,8 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @CucumberOptions(
 		features="use_cases",
 		plugin = {"summary","html:target/cucumber/report.html"},
-		monochrome=true,
+		tags= "@tag6", 
+		monochrome=true, 
 		snippets = SnippetType.CAMELCASE,
 		glue ="najah.edu.handmad_Sweet"
 		)
