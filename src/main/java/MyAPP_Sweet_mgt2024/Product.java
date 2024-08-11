@@ -1,18 +1,66 @@
 package MyAPP_Sweet_mgt2024;
 
+import java.time.LocalDate;
+
 public class Product {
 	
 	public String productName;
 	public String StoreNmae;
 	public int numberOfSalling;
 	public double price;
-	public Product(String productName, String storeNmae,double price) {
+	public double costPrice;
+	private LocalDate saleDate;
+	private double discount;
+	
+	
+	
+	
+	
+
+
+
+
+
+	public Product(String productName, String storeNmae, double price) {
 		
 		this.productName = productName;
 		StoreNmae = storeNmae;
 		this.numberOfSalling=0;
+		this.discount=0.0;
 		this.price=price;
 	}
+	
+	
+	
+	
+	
+	public Product(String productName, String storeNmae, double price, double costPrice) {
+		super();
+		this.productName = productName;
+		StoreNmae = storeNmae;
+		this.price = price;
+		this.costPrice = costPrice;
+		this.numberOfSalling=0;
+		this.discount=0.0;
+		
+	}
+	
+	public double getDiscount() {
+		return discount;
+	}
+
+
+
+
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+
+
+
+
 	public double getPrice() {
 		return price;
 	}
@@ -37,6 +85,40 @@ public class Product {
 	public void setNumberOfSalling(int numberOfSalling) {
 		this.numberOfSalling = numberOfSalling;
 	}
+
+
+
+
+
+	public double getCostPrice() {
+		return costPrice;
+	}
+
+
+
+
+
+	public void setCostPrice(double costPrice) {
+		this.costPrice = costPrice;
+	}
+
+
+
+
+
+	public LocalDate getSaleDate() {
+		return saleDate;
+	}
+
+
+
+
+
+	public void setSaleDate(LocalDate saleDate) {
+		this.saleDate = saleDate;
+	}
+	
+	
 	
 	
 

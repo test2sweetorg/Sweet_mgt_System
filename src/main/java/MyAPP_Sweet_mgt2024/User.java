@@ -1,11 +1,14 @@
 package MyAPP_Sweet_mgt2024;
 
+import java.util.ArrayList;
+
 public class User {
 	
 	private String userName;
 	private String passord;
 	private String city;
 	private String feedback;
+	public ArrayList<String>messages = new ArrayList<String>();
 	
 	public User(String userName, String passord, String city) {
 		
