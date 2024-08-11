@@ -1,6 +1,7 @@
 package najah.edu.handmad_Sweet;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import MyAPP_Sweet_mgt2024.MyApp;
 import io.cucumber.java.en.Given;
@@ -33,41 +34,41 @@ public class monitaringProfit_step {
 	@When("I select the daily profit")
 	public void iSelectTheDailyProfit() {
 	    app.systemAdmin.daliyProfitSelect=true;
-	    dailyProfitselect=app.systemAdmin.daliyProfitSelect;
+	    app.systemAdmin.printDalyProfit(2024,7,10);
 	    
 	}
 
 	@Then("I should see the  profit of currnt day for each store")
 	public void iShouldSeeTheProfitOfCurrntDayForEachStore() {
-	    boolean expected=app.systemAdmin.printDalyProfit();
-	    assertEquals(expected,dailyProfitselect);
+	    assertTrue(app.systemAdmin.daliyProfitSelect);
 	    
 	}
 
 	@When("I select the month profit")
 	public void iSelectTheMonthProfit() {
 	    app.systemAdmin.monthProfitSelect=true;
-	    monthProfitSelect= app.systemAdmin.monthProfitSelect;
+	    app.systemAdmin.printMonthProfit(2024,8);
 	    
 	}
 
 	@Then("I should see the  profit of currnt month for each store")
 	public void iShouldSeeTheProfitOfCurrntMonthForEachStore() {
-	    boolean expected= app.systemAdmin.printMonthProfit();
-	    assertEquals(expected,monthProfitSelect);
+	    
+		assertTrue(app.systemAdmin.monthProfitSelect);
+	    
 	}
 
 	@When("I select the yearly profit")
 	public void iSelectTheYearlyProfit() {
 	    app.systemAdmin.yearProfitSelect=true;
-	    yearProfitSelect= app.systemAdmin.yearProfitSelect;
+	    app.systemAdmin.printYearProfit(2024);
 	    
 	}
 
 	@Then("I should see the  profit of currnt yearly for each store")
 	public void iShouldSeeTheProfitOfCurrntYearlyForEachStore() {
-	    boolean expected= app.systemAdmin.printYearProfit();
-	    assertEquals(expected,yearProfitSelect);
+	    
+	    assertTrue(app.systemAdmin.yearProfitSelect);
 	    
 	}
 

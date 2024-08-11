@@ -192,19 +192,36 @@ public class Admin {
 	
 	//*****************************************
 
-	public boolean printDalyProfit() {
-		// TODO Auto-generated method stub
-		return true;
+	public void printDalyProfit(int year , int month , int day) {
+		System.out.println("ProductName | price | profit");
+		for( Product p1 : MyApp.salledProduct) {
+			if(p1.getSaleDate().getYear() == year && p1.getSaleDate().getMonthValue()==month && p1.getSaleDate().getDayOfMonth()==day) {
+				System.out.println(p1.getProductName()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
+			}
+		}
+		
 	}
 
-	public boolean printMonthProfit() {
-		// TODO Auto-generated method stub
-		return true;
+	public void printMonthProfit(int year,int month) {
+		
+		System.out.println("ProductName | price | profit");
+		for( Product p1 : MyApp.salledProduct) {
+			if(p1.getSaleDate().getYear() == year && p1.getSaleDate().getMonthValue()==month) {
+				System.out.println(p1.getProductName()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
+			}
+		}
+	
+		
 	}
 
-	public boolean printYearProfit() {
-		// TODO Auto-generated method stub
-		return true;
+	public void printYearProfit(int year) {
+		System.out.println("ProductName | price | profit");
+		for( Product p1 : MyApp.salledProduct) {
+			if(p1.getSaleDate().getYear() == year) {
+				System.out.println(p1.getProductName()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
+			}
+		}
+		
 	}
 	
 	
@@ -212,81 +229,7 @@ public class Admin {
 
 	public Product getBestSellingProducts(String StoreName) {
 		
-//		Product bestA = null;
-//		Product bestB = null;
-//		
-//		
-//		if(StoreName.equals("StoreA")) {
-//		for(Product p1 : MyApp.avalaibleProducts) {
-//			if(p1.getStoreNmae().equals("StoreA")) {
-//				bestA=p1;
-//				break;
-//			}
-//			
-//		}
-//		
-//		if(bestA != null) {
-//		    for(Product p1 : MyApp.avalaibleProducts) {
-//					if(p1.getStoreNmae().equals("StoreA") && p1.getNumberOfSalling() > bestA.getNumberOfSalling()) {
-//						
-//						bestA = p1;
-//						
-//					}
-//			}
-//		    
-//			}
-//		
-//		return bestA;
-//		}
-//		
-//		
-//		else if(StoreName.equals("StoreB")) {
-//		for(Product p1 : MyApp.avalaibleProducts) {
-//			if(p1.getStoreNmae().equals("StoreB")) {
-//				bestB=p1;
-//				break;
-//			}
-//			
-//		}
-//		
-////		if(bestA != null) {
-////	    for(Product p1 : MyApp.avalaibleProducts) {
-////				if(p1.getStoreNmae().equals("StoreA") && p1.getNumberOfSalling() > bestA.getNumberOfSalling()) {
-////					
-////					bestA = p1;
-////					
-////				}
-////		}
-////	    
-////		}
-//		
-//		
-//		
-//		
-//		if(bestB != null) {
-//			for(Product p1 : MyApp.avalaibleProducts) {
-//				
-//				if(p1.getStoreNmae().equals("StoreB") && p1.getNumberOfSalling() > bestB.getNumberOfSalling())
-//				
-//					bestB= p1;
-//			}
-//			
-//		}
-//		
-//		return bestB;
-//	}
-//		
-////		if(StoreName.equals("StoreA"))
-////			return bestA;
-////		else if(StoreName.equals("StoreB")) {
-////			return bestB;
-////		}
-////			
-//		
-//		return bestA;
-		
-		
-		
+
 		 Product bestProduct = null;
 		 
 

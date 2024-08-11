@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class MyApp {
 	
 	public boolean Admin_is_loggedin;
+	public boolean StoreOwner_is_loggedin;
+	
 	public static Admin systemAdmin = new Admin("malik","123456");
 	public static ArrayList<StoreOwner> StoreOwnerList = new ArrayList<StoreOwner>();
 	
@@ -40,6 +42,10 @@ public class MyApp {
 	public Product prod5 = new Product("prod2","StoreB",30);
 	public Product prod6 = new Product("prod3","StoreB",50);
 	
+	public static ArrayList<Product> salledProduct = new ArrayList<Product>();
+	
+	
+	
 	
 	
 	
@@ -47,6 +53,8 @@ public class MyApp {
 	
 	public User shaheen = new User("shaheen","5454","tullkarm");
 	public User hanaal = new User("hanaal","6666","nablus");
+	
+	
 	
 	
 	
@@ -107,11 +115,13 @@ public class MyApp {
 		hanaal.setFeedback("you are amazing team");
 		
 		users.add(shaheen);
-		Users.add(hanaal);
+		users.add(hanaal);
 		
 	}
 	
 	public void addStoreOwnerList(ArrayList<StoreOwner> storeOwners) {
+		SO1.setStoreName("StoreA");
+		SO2.setStoreName("StoreB");
 		storeOwners.add(SO1);
 		storeOwners.add(SO2);
 		
@@ -120,6 +130,21 @@ public class MyApp {
 	public void addSupplierList(ArrayList<Supplier> Suppliers) {
 		Suppliers.add(s1);
 		Suppliers.add(s2);
+	}
+	
+	
+	//***********StroeOwner
+
+
+	public void storeOwnernotLogin() {
+		StoreOwner_is_loggedin=false;
+		
+	}
+
+
+	public void loginAsStoreOwner() {
+		StoreOwner_is_loggedin=true;
+		
 	}
 
 
