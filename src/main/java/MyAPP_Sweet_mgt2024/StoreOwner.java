@@ -20,7 +20,7 @@ public class StoreOwner {
     
     public boolean ShowBestSelling;
     
-    ArrayList<String>userMessage=new ArrayList<String>();
+    public ArrayList<String>userMessage=new ArrayList<String>();
     
     public boolean massegeSentToUser;
     public boolean massegeSentToSupplier;
@@ -28,6 +28,19 @@ public class StoreOwner {
     
     
     public boolean account_mgt_check;
+    
+    
+    public static ArrayList<Orders> userOrders = new ArrayList<Orders>();
+    Product p1 =new Product("prd1","StoreA",20.0);
+    Product p2 =new Product("prd2","StoreA",25.0);
+    User u1 = new User("ahmad","125","jeit");
+    Orders ord1 = new Orders(123,p1,u1);
+    Orders ord2 = new Orders(1234,p2,u1);
+    
+    
+    
+    
+    
     
 
 	public StoreOwner(String storeOwner_name, String storeOwner_password,String storecity) {
@@ -40,6 +53,12 @@ public class StoreOwner {
 	public StoreOwner(String storeOwner_name, String storeOwner_password) {
 		this.StoreOwner_name=storeOwner_name;
 		this.StoreOwner_password=storeOwner_password;
+	}
+	
+	public void makeOrderList(ArrayList<Orders> orderlist) {
+		orderlist.add(ord1);
+		orderlist.add(ord2);
+		
 	}
 
 	
@@ -246,7 +265,7 @@ public class StoreOwner {
 			massegeSentToUser= false;
 		}
 		else {
-			String sentMessage ="From :"+ this.getStoreOwner_name()+"TO :"+userName+", message";
+			String sentMessage ="From :"+ this.getStoreOwner_name()+"TO :"+userName+":"+ message;
 			MyApp.Users.get(index).messages.add(sentMessage);
 			this.userMessage.add(sentMessage);
 			
@@ -292,12 +311,16 @@ public class StoreOwner {
 	}
 
 	public void showMessagesStoreOwner() {
+		if(this.userMessage.isEmpty()) {
+			veiwMassegesHistory=false;
+		}
+		else {
 		veiwMassegesHistory=true;
 		for(String s1 : this.userMessage ) {
 			System.out.println(s1);
 			
 		}
-		
+		}
 		
 	}
 
@@ -354,6 +377,55 @@ public class StoreOwner {
 			return true;
 		}
 		
+	}
+
+	public boolean viewOrders() {
+		if(this.userOrders.isEmpty()) {
+			System.out.println("there is no orders");
+			return false;
+		}else {
+			System.out.println("OrderID | userName | product name | price | statues");
+			for (Orders o1 : this.userOrders) {
+				if(this.getStoreName().equals(o1.getProduct().getStoreNmae())) {
+					System.out.println(o1.getOrderId()+" | "+o1.getU1().getUserName()+" | "+o1.getProduct().getProductName()+" | "+o1.getProduct().getPrice()+" | "+o1.isStatusOfOrder());
+				}
+			}
+		
+		
+		return true;
+		}
+	}
+
+	public boolean changeOrderStatus(Integer orderId) {
+		if(this.userOrders.isEmpty()) {
+			System.out.println("the order list is empty");
+			return false;
+		}
+		for(Orders o2 : this.userOrders) {
+			if(o2.getOrderId() == orderId) {
+				o2.setStatusOfOrder(true);
+				return true;
+			}
+		}
+		System.out.println("this order ID is not found");
+		return false;
+	}
+
+	public boolean deleteOrder(Integer orderid) {
+		if(this.userOrders.isEmpty()) {
+			System.out.println("the order list is empty");
+			return false;
+		}
+		for(Orders o2 : this.userOrders) {
+			if(o2.getOrderId() == orderid) {
+				this.userOrders.remove(o2);
+				return true;
+			}
+		}
+		
+		
+		System.out.println("this order ID is not found");
+		return false;
 	}
 	
 	

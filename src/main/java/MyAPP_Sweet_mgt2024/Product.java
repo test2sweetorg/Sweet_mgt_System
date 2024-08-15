@@ -11,6 +11,7 @@ public class Product {
 	public double costPrice;
 	private LocalDate saleDate;
 	private double discount;
+	private  int sugarDegree;
 	
 	
 	
@@ -28,12 +29,29 @@ public class Product {
 		this.numberOfSalling=0;
 		this.discount=0.0;
 		this.price=price;
+		this.sugarDegree=0;
 	}
 	
 	
 	
 	
 	
+	public int getSugarDegree() {
+		return sugarDegree;
+	}
+
+
+
+
+
+	public void setSugarDegree(int sugarDegree) {
+		this.sugarDegree = sugarDegree;
+	}
+
+
+
+
+
 	public Product(String productName, String storeNmae, double price, double costPrice) {
 		super();
 		this.productName = productName;

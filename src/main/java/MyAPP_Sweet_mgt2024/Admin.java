@@ -150,8 +150,13 @@ public class Admin {
 		
 	}
 
-	public void addStoreOwnertoList(StoreOwner so1) {
+	public boolean addStoreOwnertoList(StoreOwner so1) {
+		if(so1.getStoreOwner_name()==null || so1.getStoreOwner_name().isEmpty() || so1.getStoreOwner_password().isEmpty() || so1.getStoreCity()==null ||so1.getStoreCity().isEmpty() ) {
+			System.out.println("invalid store owner");
+			return false;
+		}
 		MyApp.StoreOwnerList.add(so1);
+		return true;
 		
 	}
 
@@ -273,6 +278,48 @@ public class Admin {
 			
 		}
 		
+	}
+
+	public boolean checkManageRecipes() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	public boolean accepteRecipe(String recipeName) {
+		if(recipeName == null || recipeName.isEmpty()) {
+			System.out.println("enter valid recipe name");
+			return false;
+		}
+		
+		for(recipes re1 : MyApp.recipess) {
+			if(re1.getRecipeName().equals(recipeName)) {
+				re1.setRecipeStatus(true);
+				return true;
+			}
+		}
+		
+		System.out.println("this recipe not fount in the list");
+		return false;
+	}
+	
+	
+	
+
+	public boolean deleteRecipe(String recipeName) {
+		if(recipeName == null || recipeName.isEmpty()) {
+			System.out.println("enter valid recipe name");
+			return false;
+		}
+		
+		for(recipes re1 : MyApp.recipess) {
+			if(re1.getRecipeName().equals(recipeName)) {
+				MyApp.recipess.remove(re1);
+				return true;
+			}
+		}
+		
+		System.out.println("this recipe not fount in the list");
+		return false;
 	}
 	
 	

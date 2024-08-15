@@ -53,6 +53,7 @@ public class StoreOwnerCamunication {
 
 	@When("Store Owner selects a see communication history option")
 	public void storeOwnerSelectsASeeCommunicationHistoryOption() {
+		app.SO1.userMessage.add("feajfn");
 	    app.SO1.showMessagesStoreOwner();
 	}
 
