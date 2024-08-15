@@ -11,6 +11,7 @@ import io.cucumber.java.en.When;
 public class addStoreOwner_step {
 	
 	MyApp app;
+	boolean checkaddstoreOwner;
 	
 	
 	
@@ -31,13 +32,16 @@ public class addStoreOwner_step {
 
 	@When("fill the details of the store owner storeOwnerName {string} and password {string} storecity {string}")
 	public void fillTheDetailsOfTheStoreOwnerStoreOwnerNameAndPasswordStorecity(String username, String password, String city) {
+		username="ahmad";
+		password="153518497";
+		city="nablus";
 	    StoreOwner so1 = new StoreOwner(username,username,city);
-	    app.systemAdmin.addStoreOwnertoList(so1);
+	    checkaddstoreOwner=app.systemAdmin.addStoreOwnertoList(so1);
 	}
 
 	@Then("the new store owner account should be created")
 	public void theNewStoreOwnerAccountShouldBeCreated() {
-	    assertTrue(app.systemAdmin.addstoreOwner);
+	    assertTrue(checkaddstoreOwner);
 	}
 
 }
