@@ -1,14 +1,14 @@
 package MyAPP_Sweet_mgt2024;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
-import MyAPP_Sweet_mgt2024.StoreOwner;
+
+
+
 
 public class Admin {
 	
-	public String admin_name;
+	private String adminName;
 	public String admin_password;
 	public boolean addSupplier;
 	public boolean deleteSupplier;
@@ -46,7 +46,7 @@ public class Admin {
 	
 	
 	public Admin(String username, String password) {
-		admin_name=username;
+		adminName=username;
 		admin_password=password;
 		
 		
@@ -56,11 +56,11 @@ public class Admin {
 	}
 
 	public String getAdmin_name() {
-		return admin_name;
+		return adminName;
 	}
 
 	public void setAdmin_name(String admin_name) {
-		this.admin_name = admin_name;
+		this.adminName = admin_name;
 	}
 
 	public String getAdmin_password() {

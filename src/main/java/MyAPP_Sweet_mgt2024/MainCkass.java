@@ -138,7 +138,7 @@ public class MainCkass {
 							 break;
 						
 						 case 5:
-							 
+							 app.adduserList(app.Users);
 							 app.systemAdmin.showStaistics();
 							 
 							 break;
