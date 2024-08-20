@@ -44,10 +44,10 @@ public class Admin_login_logout_steps {
 
 	@When("the Admin click in login")
 	public void theAdminClickInLogin() {
-	    String EX_adminName= app.systemAdmin.getAdmin_name();
-	    String EX_adminPassword=app.systemAdmin.getAdmin_password();
+	    String EX_adminName= app.systemAdmin.getAdminname();
+	    String EX_adminPassword=app.systemAdmin.getAdminname();
 	    
-	    if(EX_adminName.equals(adminn.getAdmin_name()) && EX_adminPassword.equals(adminn.getAdmin_password()) ) {
+	    if(EX_adminName.equals(adminn.getAdminname()) && EX_adminPassword.equals(adminn.getAdminpassword()) ) {
 	    	
 	    	app.loginAsAdmin();
 	    	app.loginAdmin();

@@ -101,13 +101,13 @@ public class Admin {
 	private static boolean editPassword;
 	
 	//***************************************
-	private boolean monitorProfit;
+	private static boolean monitorProfit;
 	public boolean isMonitorProfit() {
 		return monitorProfit;
 	}
 
 	public void setMonitorProfit(boolean monitorProfit) {
-		this.monitorProfit = monitorProfit;
+		Admin.monitorProfit = monitorProfit;
 	}
 
 
@@ -151,7 +151,7 @@ public class Admin {
 
 
 	//******************************************
-	private boolean showBest_SellingBroduct;
+	private boolean showBestSellingBroduct;
 	
 	
 	//*******************
@@ -197,28 +197,28 @@ public class Admin {
 		
 	}
 
-	public String getAdmin_name() {
+	public String getAdminname() {
 		return adminName;
 	}
 
-	public void setAdmin_name(String admin_name) {
-		this.adminName = admin_name;
+	public void setAdminname(String adminname) {
+		this.adminName = adminname;
 	}
 
-	public String getAdmin_password() {
+	public String getAdminpassword() {
 		return adminPassword;
 	}
 
-	public void setAdmin_password(String admin_password) {
-		this.adminPassword = admin_password;
+	public void setAdminpassword(String adminpassword) {
+		this.adminPassword = adminpassword;
 	}
 
-	public void show_dashbord() {
+	public void showdashbord() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void create_storeOwner(StoreOwner so1 ) {
+	public void createstoreOwner(StoreOwner so1 ) {
 		// to add new store owner
 		MyApp.StoreOwnerList.add(so1);
 		
@@ -246,13 +246,13 @@ public class Admin {
 	public void deletStoreOwner(int index) {
 		if(index == -1) {
 			logger.info("the store Owner you search to delete is not found");
-			this.deleteStoreOwner=false;
+			deleteStoreOwner=false;
 		}
 		else {
 		
 			MyApp.StoreOwnerList.remove(index);
 			logger.info("deleted successfully");
-			this.deleteStoreOwner=true;
+			deleteStoreOwner=true;
 		}
 		
 	}
@@ -403,7 +403,7 @@ public class Admin {
 	}
 
 	public void showbestSelling() {
-		showBest_SellingBroduct =true;
+		showBestSellingBroduct =true;
 		
 	}
 
@@ -424,7 +424,7 @@ public class Admin {
 		ArrayList<User> users =MyApp.Users;
 		
 		for(User u1 : users) {
-			if(u1.getFeedback()!="") {
+			if(!u1.getFeedback().equals("")) {
 				
 			    logger.info(u1.getUserName()+":"+u1.getFeedback());
 			    showfeedbacks=true;
