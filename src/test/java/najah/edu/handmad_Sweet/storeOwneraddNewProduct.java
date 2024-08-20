@@ -28,34 +28,13 @@ public class storeOwneraddNewProduct {
 
 	@When("Store owner clicks on Add New Product with productname {string} and storename {string} and price {string}")
 	public void storeOwnerClicksOnAddNewProductWithProductnameAndStorenameAndPrice(String productname, String storename, String price) {
-		productname="prod3";
+		productname="prod5";
 		storename="StroeA";
 		price="30";
 		double price1=Double.parseDouble(price);
 		boolean b1 =true;
-		
-		if(productname ==null || storename==null || price1==0.0 ) {
-		app.SO1.invaildproduct();
-			
-		}else {
-			app.makeProductList(app.avalaibleProducts);
-			prod1 = new Product(productname,storename,price1);
-		    for( Product p1: app.avalaibleProducts) {
-		    	if(p1.getProductName().equals(prod1.getProductName()) && p1.getStoreNmae().equals(prod1.getStoreNmae())) {
-		    		app.SO1.invaildproduct();
-		    		b1 = false;
-		    	}
-		    	
-		    }
-		    
-		    if(b1 ==true) {
-		    	
-		    	app.SO1.addnewProduct( prod1);
-		    }
-			
-			
-		}
-		
+		app.makeProductList(app.avalaibleProducts);
+		app.SO1.addnewProduct(productname,storename,price1);	
 	    
 	}
 
@@ -63,9 +42,23 @@ public class storeOwneraddNewProduct {
 	public void theNewProductShouldBeAddedToTheProductList() {
 	    assertTrue(app.SO1.addproductsuccessfuly);
 	}
+	
+	@When("Store owner clicks on Add New Product with already existing productname {string} and storename {string} and price {string}")
+	public void storeOwnerClicksOnAddNewProductWithAlreadyExistingProductnameAndStorenameAndPrice(String productname, String storename, String price) {
+	    
+		productname="prod2";
+		storename="StroeA";
+		price="30";
+		double price1=Double.parseDouble(price);
+		app.makeProductList(app.avalaibleProducts);
+		app.SO1.addnewProduct(productname,storename,price1);
+		
+		
+	}
 
 	@Then("an error message {string} should be displayed")
-	public void anErrorMessageShouldBeDisplayed(String string) {
+	public void anErrorMessageShouldBeDisplayed(String message) {
+		message ="hello";
 	    assertFalse(app.SO1.addproductsuccessfuly);
 	}
 

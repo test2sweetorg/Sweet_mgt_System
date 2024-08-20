@@ -35,6 +35,13 @@ public class deleteProductStoreOwner_step {
 	public void theProductShouldBeRemovedFromTheListOfProducts() {
 	   assertTrue(index);
 	}
+	
+	@When("Store owner click on delete product with invalid name {string}")
+	public void storeOwnerClickOnDeleteProductWithInvalidName(String productName) {
+		app.makeProductList(app.avalaibleProducts);
+		productName = "prod20";
+		index = app.SO1.deleteProduct(productName);
+	}
 
 	@Then("Store owner should see an error message indicating the product does not exist")
 	public void storeOwnerShouldSeeAnErrorMessageIndicatingTheProductDoesNotExist() {

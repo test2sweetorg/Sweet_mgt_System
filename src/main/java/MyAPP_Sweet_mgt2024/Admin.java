@@ -102,9 +102,16 @@ public class Admin {
 	}
 
 	public void deletStoreOwner(int index) {
+		if(index == -1) {
+			System.out.println("the store Owner you search to delete is not found");
+			this.deleteStoreOwner=false;
+		}
+		else {
 		
 			MyApp.StoreOwnerList.remove(index);
-			
+			System.out.println("deleted successfully");
+			this.deleteStoreOwner=true;
+		}
 		
 	}
 
@@ -198,6 +205,7 @@ public class Admin {
 	//*****************************************
 
 	public void printDalyProfit(int year , int month , int day) {
+		
 		System.out.println("ProductName | price | profit");
 		for( Product p1 : MyApp.salledProduct) {
 			if(p1.getSaleDate().getYear() == year && p1.getSaleDate().getMonthValue()==month && p1.getSaleDate().getDayOfMonth()==day) {
@@ -246,7 +254,9 @@ public class Admin {
 		            }
 		        }
 		    }
-
+		    
+		    if(bestProduct != null)
+		    	System.out.println(bestProduct.toString());
 		    return bestProduct;
 	}
 
@@ -261,7 +271,10 @@ public class Admin {
 	}
 
 	public void showStaistics() {
-		// TODO Auto-generated method stub
+		for(User u1: MyApp.Users) {
+			System.out.println("User Name:"+u1.getUserName()+"City:"+u1.getCity());
+			
+		}
 		
 	}
 
@@ -283,6 +296,15 @@ public class Admin {
 	public boolean checkManageRecipes() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+	
+	public void showRecipes() {
+		
+		for(recipes re1 : MyApp.recipess) {
+			System.out.println(re1.toString());
+			
+		}
+		
 	}
 
 	public boolean accepteRecipe(String recipeName) {

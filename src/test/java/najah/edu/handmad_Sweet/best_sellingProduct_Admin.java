@@ -40,6 +40,7 @@ public class best_sellingProduct_Admin {
 	public void adminSelectAStore() {
 		app.makeProductList(app.avalaibleProducts);
 		bestSellingProducts = app.systemAdmin.getBestSellingProducts("StoreB");
+		
 	}
 
 	@Then("Admin should see a list of the best-selling products in the selected store")
