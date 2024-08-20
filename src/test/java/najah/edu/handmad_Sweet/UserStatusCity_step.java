@@ -34,7 +34,7 @@ public class UserStatusCity_step {
 
 	@Then("Admin should see a list of cities with the number of registered users in each city")
 	public void adminShouldSeeAListOfCitiesWithTheNumberOfRegisteredUsersInEachCity() {
-	   assertTrue(app.systemAdmin.showStatisticsUser);
+	   assertTrue(app.systemAdmin.isShowStatisticsUser());
 	}
 
 }

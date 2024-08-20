@@ -27,7 +27,7 @@ public class addSupplier {
 
 	@When("Admin click on Create new supplier")
 	public void adminClickOnCreateNewSupplier() {
-	    app.systemAdmin.addSupplier = true;
+	    app.systemAdmin.setAddSupplier(true);
 	}
 
 	@When("fill the details of the supplier supplier name {string} and password {string}")
@@ -38,7 +38,7 @@ public class addSupplier {
 
 	@Then("the new supplier account should be created")
 	public void theNewSupplierAccountShouldBeCreated() {
-	    assertTrue(app.systemAdmin.addSupplier);
+	    assertTrue(app.systemAdmin.isAddSupplier());
 	}
 
 }

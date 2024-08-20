@@ -41,18 +41,18 @@ public class deleteStoreOwner_step {
 	public void thereIsAnExistingStoreOwnerAccountWithStoreOwnerName() {
 	   if(index != -1) {
 		   app.systemAdmin.deletStoreOwner(index);
-		   app.systemAdmin.deleteStoreOwner=true;
+		   app.systemAdmin.setDeleteStoreOwner(true);
 	   }
 	}
 
 	@Then("this account should be deleted")
 	public void thisAccountShouldBeDeleted() {
-	    assertTrue(app.systemAdmin.deleteStoreOwner);
+	    assertTrue(app.systemAdmin.isDeleteStoreOwner());
 	}
 
 	@When("there is No existing storeOwner account with storeOwnerName")
 	public void thereIsNoExistingStoreOwnerAccountWithStoreOwnerName() {
-		app.systemAdmin.deleteStoreOwner=false;
+		app.systemAdmin.setDeleteStoreOwner(false);
 		app.systemAdmin.deleteStoreOwnerFaildMessage();
 		
 		
@@ -61,7 +61,7 @@ public class deleteStoreOwner_step {
 
 	@Then("there no existing account")
 	public void thereNoExistingAccount() {
-		assertFalse(app.systemAdmin.deleteStoreOwner);
+		assertFalse(app.systemAdmin.isDeleteStoreOwner());
 	}
 
 }

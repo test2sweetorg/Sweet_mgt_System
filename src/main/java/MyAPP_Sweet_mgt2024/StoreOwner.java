@@ -2,9 +2,11 @@ package MyAPP_Sweet_mgt2024;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class StoreOwner {
 	
+	private static final Logger logger = Logger.getLogger(StoreOwner.class.getName());
 	public String StoreOwner_name;
 	public String StoreOwner_password;
 	public String StoreCity;
@@ -97,7 +99,7 @@ public class StoreOwner {
 	}
 
 	public void invaildproduct() {
-		System.out.println("invalid product add");
+		logger.info("invalid product add");
 	   this.addproductsuccessfuly = false;
 		
 	}
@@ -129,7 +131,7 @@ public class StoreOwner {
 	public boolean deleteProduct(String productName) {
 		
 		if(productName == null || productName.isEmpty()) {
-			System.out.println("invalid product name");
+			logger.info("invalid product name");
 			return false;
 		}
 		
@@ -145,7 +147,7 @@ public class StoreOwner {
 			}
 			index++;
 		}
-		System.out.println("the product you need to remove does not exist");
+		logger.info("the product you need to remove does not exist");
 		return false;
 	}
 
@@ -164,13 +166,13 @@ public class StoreOwner {
 	}
 
 	public void invalidupdate() {
-		System.out.println("invalid update product");
+		logger.info("invalid update product");
 		updateproductseccessfully =false;
 		
 	}
 
 	public void validupdateProduct() {
-		System.out.println("the  updated successfully");
+		logger.info("the  updated successfully");
 		updateproductseccessfully =true;
 		
 	}
@@ -198,13 +200,13 @@ public class StoreOwner {
 
 	public void printDailyprofit(int year, int month , int day) {
 		if(year ==0 || month==0 || day ==0) {
-			System.out.println("invalid date");
+			logger.info("invalid date");
 			return;
 		}
-		System.out.println("ProductName | StoreName | price | profit");
+		logger.info("ProductName | StoreName | price | profit");
 		for( Product p1 : MyApp.salledProduct) {
 			if(p1.getSaleDate().getYear() == year && p1.getSaleDate().getMonthValue()==month && p1.getSaleDate().getDayOfMonth()==day &&p1.getStoreNmae().equals(this.StoreName)) {
-				System.out.println(p1.getProductName()+" | "+p1.getStoreNmae()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
+				logger.info(p1.getProductName()+" | "+p1.getStoreNmae()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
 			}
 		}
 		
@@ -217,14 +219,14 @@ public class StoreOwner {
 
 	public void printMonthlyprofit(int year, int month) {
 		if(year ==0 || month==0 ) {
-			System.out.println("invalid date");
+			logger.info("invalid date");
 			return;
 		}
 		
-		System.out.println("ProductName | StoreName | price | profit");
+		logger.info("ProductName | StoreName | price | profit");
 		for( Product p1 : MyApp.salledProduct) {
 			if(p1.getSaleDate().getYear() == year && p1.getSaleDate().getMonthValue()==month &&p1.getStoreNmae().equals(this.StoreName)) {
-				System.out.println(p1.getProductName()+" | "+p1.getStoreNmae()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
+				logger.info(p1.getProductName()+" | "+p1.getStoreNmae()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
 			}
 		}
 		
@@ -238,14 +240,14 @@ public class StoreOwner {
 
 	public void printYearlyprofit(int year) {
 		if(year ==0) {
-			System.out.println("invalid date");
+			logger.info("invalid date");
 			return;
 		}
 		
-		System.out.println("ProductName | StoreName | price | profit");
+		logger.info("ProductName | StoreName | price | profit");
 		for( Product p1 : MyApp.salledProduct) {
 			if(p1.getSaleDate().getYear() == year &&p1.getStoreNmae().equals(this.StoreName)) {
-				System.out.println(p1.getProductName()+" | "+p1.getStoreNmae()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
+				logger.info(p1.getProductName()+" | "+p1.getStoreNmae()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
 			}
 		}
 		
@@ -259,7 +261,7 @@ public class StoreOwner {
 	public Product getBestSellingProducts(String StoreName) {
 		 Product bestProduct = null;
 		    if(StoreName ==null || StoreName.isEmpty()) {
-		    	System.out.println("enter valid store name");
+		    	logger.info("enter valid store name");
 		    }
 
 		    for (Product p : MyApp.avalaibleProducts) {
@@ -279,7 +281,7 @@ public class StoreOwner {
 		
 		index = serchOnAProduct(productName);
 		if(index == -1) {
-			System.out.println("invalid product name");
+			logger.info("invalid product name");
 		return false;
 		}
 		else {
@@ -303,7 +305,7 @@ public class StoreOwner {
 	public void sendmassegeToUser(String userName, String message) {
 		int index =searchofUser(userName);
 		if(index == -1) {
-			System.out.println("user name not found in the system");
+			logger.info("user name not found in the system");
 			massegeSentToUser= false;
 		}
 		else {
@@ -355,12 +357,12 @@ public class StoreOwner {
 	public void showMessagesStoreOwner() {
 		if(this.userMessage.isEmpty()) {
 			veiwMassegesHistory=false;
-			System.out.println("the message history is empty");
+			logger.info("the message history is empty");
 		}
 		else {
 		veiwMassegesHistory=true;
 		for(String s1 : this.userMessage ) {
-			System.out.println(s1);
+			logger.info(s1);
 			
 		}
 		}
@@ -374,12 +376,12 @@ public class StoreOwner {
 
 	public boolean manageStoreName(String newStoreName) {
 		if(newStoreName==null || newStoreName.isEmpty() ) {
-			System.out.println("please Enter valid new name ");
+			logger.info("please Enter valid new name ");
 			return false;
 		}else {
 		for(StoreOwner s1 : MyApp.StoreOwnerList) {
 			if(s1.getStoreName().equals(newStoreName)) {
-				System.out.println("this name exist in the Stores list");
+				logger.info("this name exist in the Stores list");
 				return false;
 				
 			}
@@ -399,7 +401,7 @@ public class StoreOwner {
 
 	public boolean manageStoreOwnerName(String newStoreOwnerName) {
 		if(newStoreOwnerName==null || newStoreOwnerName.isEmpty()) {
-			System.out.println("invalid new Stroe Owner Name");
+			logger.info("invalid new Stroe Owner Name");
 			return false;
 		}else {
 			this.setStoreOwner_name(newStoreOwnerName);
@@ -412,7 +414,7 @@ public class StoreOwner {
 
 	public boolean manegeStroeOwnerPassword(String newPassword) {
 		if(newPassword==null || newPassword.isEmpty() ) {
-			System.out.println("invalid new Stroe Owner password");
+			logger.info("invalid new Stroe Owner password");
 			return false;
 		}else {
 			
@@ -424,13 +426,13 @@ public class StoreOwner {
 
 	public boolean viewOrders() {
 		if(this.userOrders.isEmpty()) {
-			System.out.println("there is no orders");
+			logger.info("there is no orders");
 			return false;
 		}else {
-			System.out.println("OrderID | userName | product name | price | statues");
+			logger.info("OrderID | userName | product name | price | statues");
 			for (Orders o1 : this.userOrders) {
 				if(this.getStoreName().equals(o1.getProduct().getStoreNmae())) {
-					System.out.println(o1.getOrderId()+" | "+o1.getU1().getUserName()+" | "+o1.getProduct().getProductName()+" | "+o1.getProduct().getPrice()+" | "+o1.isStatusOfOrder());
+					logger.info(o1.getOrderId()+" | "+o1.getU1().getUserName()+" | "+o1.getProduct().getProductName()+" | "+o1.getProduct().getPrice()+" | "+o1.isStatusOfOrder());
 				}
 			}
 		
@@ -441,7 +443,7 @@ public class StoreOwner {
 
 	public boolean changeOrderStatus(Integer orderId) {
 		if(this.userOrders.isEmpty()) {
-			System.out.println("the order list is empty");
+			logger.info("the order list is empty");
 			return false;
 		}
 		for(Orders o2 : this.userOrders) {
@@ -450,13 +452,13 @@ public class StoreOwner {
 				return true;
 			}
 		}
-		System.out.println("this order ID is not found");
+		logger.info("this order ID is not found");
 		return false;
 	}
 
 	public boolean deleteOrder(Integer orderid) {
 		if(this.userOrders.isEmpty()) {
-			System.out.println("the order list is empty");
+			logger.info("the order list is empty");
 			return false;
 		}
 		for(Orders o2 : this.userOrders) {
@@ -467,7 +469,7 @@ public class StoreOwner {
 		}
 		
 		
-		System.out.println("this order ID is not found");
+		logger.info("this order ID is not found");
 		return false;
 	}
 	

@@ -28,25 +28,26 @@ public class monitaringProfit_step {
 
 	@When("I click on the Monitor profits button")
 	public void iClickOnTheMonitorProfitsButton() {
-	    app.systemAdmin.monitorProfit = true;
+	    app.systemAdmin.setMonitorProfit(true);
+	    
 	}
 
 	@When("I select the daily profit")
 	public void iSelectTheDailyProfit() {
-	    app.systemAdmin.daliyProfitSelect=true;
+	    app.systemAdmin.setDaliyProfitSelect(true);
 	    app.systemAdmin.printDalyProfit(2024,7,10);
 	    
 	}
 
 	@Then("I should see the  profit of currnt day for each store")
 	public void iShouldSeeTheProfitOfCurrntDayForEachStore() {
-	    assertTrue(app.systemAdmin.daliyProfitSelect);
+	    assertTrue(app.systemAdmin.isDaliyProfitSelect());
 	    
 	}
 
 	@When("I select the month profit")
 	public void iSelectTheMonthProfit() {
-	    app.systemAdmin.monthProfitSelect=true;
+	    app.systemAdmin.setMonthProfitSelect(true);
 	    app.systemAdmin.printMonthProfit(2024,8);
 	    
 	}
@@ -54,13 +55,13 @@ public class monitaringProfit_step {
 	@Then("I should see the  profit of currnt month for each store")
 	public void iShouldSeeTheProfitOfCurrntMonthForEachStore() {
 	    
-		assertTrue(app.systemAdmin.monthProfitSelect);
+		assertTrue(app.systemAdmin.isMonthProfitSelect());
 	    
 	}
 
 	@When("I select the yearly profit")
 	public void iSelectTheYearlyProfit() {
-	    app.systemAdmin.yearProfitSelect=true;
+	    app.systemAdmin.setYearProfitSelect(true);
 	    app.systemAdmin.printYearProfit(2024);
 	    
 	}
@@ -68,7 +69,7 @@ public class monitaringProfit_step {
 	@Then("I should see the  profit of currnt yearly for each store")
 	public void iShouldSeeTheProfitOfCurrntYearlyForEachStore() {
 	    
-	    assertTrue(app.systemAdmin.yearProfitSelect);
+	    assertTrue(app.systemAdmin.isYearProfitSelect());
 	    
 	}
 

@@ -27,7 +27,7 @@ public class addStoreOwner_step {
 
 	@When("Admin click on Create new Store owner")
 	public void adminClickOnCreateNewStoreOwner() {
-	    app.systemAdmin.addstoreOwner=true;
+	    app.systemAdmin.setAddstoreOwner(true);
 	}
 
 	@When("fill the details of the store owner storeOwnerName {string} and password {string} storecity {string}")

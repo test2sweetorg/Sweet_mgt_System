@@ -42,7 +42,7 @@ public class deleteSupplier {
 	public void thereIsAnExistingSupplierAccountWithSupplierName() {
 	    if(index!=-1) {
 	    	app.systemAdmin.deleteSuppler(index);
-	    	app.systemAdmin.deleteSupplier =true;
+	    	app.systemAdmin.setDeleteSupplier(true);
 	    }
 	}
 
@@ -56,18 +56,18 @@ public class deleteSupplier {
 	
 	@Then("this account should be deleteds")
 	public void thisAccountShouldBeDeleteds() {
-	    assertTrue(app.systemAdmin.deleteSupplier);
+	    assertTrue(app.systemAdmin.isDeleteSupplier());
 	}
 
 	@When("there is No existing supplier account with supplierName")
 	public void thereIsNoExistingSupplierAccountWithSupplierName() {
-	    app.systemAdmin.deleteSupplier=false;
+	    app.systemAdmin.setDeleteSupplier(false);
 	    app.systemAdmin.deleteSupplierfaildMessage();
 	}
 
 	@Then("the account not found")
 	public void theAccountNotFound() {
-	    assertFalse(app.systemAdmin.deleteSupplier);
+	    assertFalse(app.systemAdmin.isDeleteSupplier());
 	    
 	}
 }

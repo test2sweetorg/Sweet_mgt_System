@@ -1,6 +1,7 @@
 package MyAPP_Sweet_mgt2024;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 
 
@@ -8,34 +9,167 @@ import java.util.ArrayList;
 
 public class Admin {
 	
+	private static final Logger logger = Logger.getLogger(Admin.class.getName());
 	private String adminName;
-	public String admin_password;
-	public boolean addSupplier;
-	public boolean deleteSupplier;
+	private String adminPassword;
+	private boolean addSuppliervariable;
+	public boolean isAddSupplier() {
+		return addSuppliervariable;
+	}
+
+	public void setAddSupplier(boolean addSupplier) {
+		this.addSuppliervariable = addSupplier;
+	}
+
+
+
+
+	private boolean deleteSupplier;
 	
-	public static boolean storeOwnerFound;
-	public static boolean supplierFound;
-	public static boolean addstoreOwner;
-	public static boolean deleteStoreOwner;
-	public static boolean editStoreOwner;
-	public static boolean editName;
-	public static boolean editPassword;
+	public boolean isDeleteSupplier() {
+		return deleteSupplier;
+	}
+
+	public void setDeleteSupplier(boolean deleteSupplier) {
+		this.deleteSupplier = deleteSupplier;
+	}
+
+
+
+
+	private static boolean storeOwnerFound;
+	public static boolean isStoreOwnerFound() {
+		return storeOwnerFound;
+	}
+
+	public static void setStoreOwnerFound(boolean storeOwnerFound) {
+		Admin.storeOwnerFound = storeOwnerFound;
+	}
+
+
+
+
+	private static boolean supplierFound;
+	public static boolean isSupplierFound() {
+		return supplierFound;
+	}
+
+	public static void setSupplierFound(boolean supplierFound) {
+		Admin.supplierFound = supplierFound;
+	}
+
+
+
+
+	private static boolean addstoreOwner;
+	public static boolean isAddstoreOwner() {
+		return addstoreOwner;
+	}
+
+	public static void setAddstoreOwner(boolean addstoreOwner) {
+		Admin.addstoreOwner = addstoreOwner;
+	}
+
+
+
+
+	private static boolean deleteStoreOwner;
+	public static boolean isDeleteStoreOwner() {
+		return deleteStoreOwner;
+	}
+
+	public static void setDeleteStoreOwner(boolean deleteStoreOwner) {
+		Admin.deleteStoreOwner = deleteStoreOwner;
+	}
+
+
+
+
+	private static boolean editStoreOwner;
+	public static boolean isEditStoreOwner() {
+		return editStoreOwner;
+	}
+
+	public static void setEditStoreOwner(boolean editStoreOwner) {
+		Admin.editStoreOwner = editStoreOwner;
+	}
+
+
+
+
+	private static boolean editName;
+	private static boolean editPassword;
 	
 	//***************************************
-	public boolean monitorProfit;
-	public boolean daliyProfitSelect;
-	public boolean monthProfitSelect;
-	public boolean yearProfitSelect;
+	private boolean monitorProfit;
+	public boolean isMonitorProfit() {
+		return monitorProfit;
+	}
+
+	public void setMonitorProfit(boolean monitorProfit) {
+		this.monitorProfit = monitorProfit;
+	}
+
+
+
+
+	private boolean daliyProfitSelect;
+	public boolean isDaliyProfitSelect() {
+		return daliyProfitSelect;
+	}
+
+	public void setDaliyProfitSelect(boolean daliyProfitSelect) {
+		this.daliyProfitSelect = daliyProfitSelect;
+	}
+
+
+
+
+	private boolean monthProfitSelect;
+	public boolean isMonthProfitSelect() {
+		return monthProfitSelect;
+	}
+
+	public void setMonthProfitSelect(boolean monthProfitSelect) {
+		this.monthProfitSelect = monthProfitSelect;
+	}
+
+
+
+
+	private boolean yearProfitSelect;
 	
+	public boolean isYearProfitSelect() {
+		return yearProfitSelect;
+	}
+
+	public void setYearProfitSelect(boolean yearProfitSelect) {
+		this.yearProfitSelect = yearProfitSelect;
+	}
+
+
+
+
 	//******************************************
-	public boolean showBest_SellingBroduct;
+	private boolean showBest_SellingBroduct;
 	
 	
 	//*******************
-	public boolean showStatisticsUser;
+	private boolean showStatisticsUser;
 	
+	public boolean isShowStatisticsUser() {
+		return showStatisticsUser;
+	}
+
+	public void setShowStatisticsUser(boolean showStatisticsUser) {
+		this.showStatisticsUser = showStatisticsUser;
+	}
+
+
+
+
 	///*************
-	public boolean showfeedbacks;
+	private boolean showfeedbacks;
     
 	
 	
@@ -45,9 +179,17 @@ public class Admin {
 	
 	
 	
+	public boolean isShowfeedbacks() {
+		return showfeedbacks;
+	}
+
+	public void setShowfeedbacks(boolean showfeedbacks) {
+		this.showfeedbacks = showfeedbacks;
+	}
+
 	public Admin(String username, String password) {
 		adminName=username;
-		admin_password=password;
+		adminPassword=password;
 		
 		
 		//*******************************
@@ -64,11 +206,11 @@ public class Admin {
 	}
 
 	public String getAdmin_password() {
-		return admin_password;
+		return adminPassword;
 	}
 
 	public void setAdmin_password(String admin_password) {
-		this.admin_password = admin_password;
+		this.adminPassword = admin_password;
 	}
 
 	public void show_dashbord() {
@@ -83,7 +225,7 @@ public class Admin {
 	}
 
 	public void showConfirmationMessage() {
-		System.out.println("storeOwner account created successfuly"); 
+		logger.info("storeOwner account created successfuly"); 
 		
 	}
 
@@ -103,13 +245,13 @@ public class Admin {
 
 	public void deletStoreOwner(int index) {
 		if(index == -1) {
-			System.out.println("the store Owner you search to delete is not found");
+			logger.info("the store Owner you search to delete is not found");
 			this.deleteStoreOwner=false;
 		}
 		else {
 		
 			MyApp.StoreOwnerList.remove(index);
-			System.out.println("deleted successfully");
+			logger.info("deleted successfully");
 			this.deleteStoreOwner=true;
 		}
 		
@@ -118,7 +260,7 @@ public class Admin {
 	public void deleteStoreOwnerMessage() {
 		
 		if(storeOwnerFound) {
-			System.out.println("this Account was deleted successfully");
+			logger.info("this Account was deleted successfully");
 		} 
 			
 		
@@ -128,7 +270,7 @@ public class Admin {
 	public void deleteStoreOwnerFaildMessage() {
 		
 		if(!storeOwnerFound) {
-		System.out.println("this Account is not found");
+		logger.info("this Account is not found");
 		}
 		
 	}
@@ -142,12 +284,12 @@ public class Admin {
 	}
 
 	public void ShowUpdateStoreOwnerNameMessage() {
-		System.out.println("the store owner name updated successfully");
+		logger.info("the store owner name updated successfully");
 		
 	}
 
 	public void invalidUpdateStoreOwnerMessage() {
-		System.out.println("Store Owner  update faild");
+		logger.info("Store Owner  update faild");
 		
 	}
 
@@ -159,7 +301,7 @@ public class Admin {
 
 	public boolean addStoreOwnertoList(StoreOwner so1) {
 		if(so1.getStoreOwner_name()==null || so1.getStoreOwner_name().isEmpty() || so1.getStoreOwner_password().isEmpty() || so1.getStoreCity()==null ||so1.getStoreCity().isEmpty() ) {
-			System.out.println("invalid store owner");
+			logger.info("invalid store owner");
 			return false;
 		}
 		MyApp.StoreOwnerList.add(so1);
@@ -197,7 +339,7 @@ public class Admin {
 
 	public void deleteSupplierfaildMessage() {
 		
-		System.out.println("this account not found");
+		logger.info("this account not found");
 		
 		
 	}
@@ -206,10 +348,10 @@ public class Admin {
 
 	public void printDalyProfit(int year , int month , int day) {
 		
-		System.out.println("ProductName | price | profit");
+		logger.info("ProductName | price | profit");
 		for( Product p1 : MyApp.salledProduct) {
 			if(p1.getSaleDate().getYear() == year && p1.getSaleDate().getMonthValue()==month && p1.getSaleDate().getDayOfMonth()==day) {
-				System.out.println(p1.getProductName()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
+				logger.info(p1.getProductName()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
 			}
 		}
 		
@@ -217,10 +359,10 @@ public class Admin {
 
 	public void printMonthProfit(int year,int month) {
 		
-		System.out.println("ProductName | price | profit");
+		logger.info("ProductName | price | profit");
 		for( Product p1 : MyApp.salledProduct) {
 			if(p1.getSaleDate().getYear() == year && p1.getSaleDate().getMonthValue()==month) {
-				System.out.println(p1.getProductName()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
+				logger.info(p1.getProductName()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
 			}
 		}
 	
@@ -228,10 +370,10 @@ public class Admin {
 	}
 
 	public void printYearProfit(int year) {
-		System.out.println("ProductName | price | profit");
+		logger.info("ProductName | price | profit");
 		for( Product p1 : MyApp.salledProduct) {
 			if(p1.getSaleDate().getYear() == year) {
-				System.out.println(p1.getProductName()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
+				logger.info(p1.getProductName()+" | "+p1.getPrice()+" | "+(p1.getPrice()-p1.getCostPrice()));
 			}
 		}
 		
@@ -256,7 +398,7 @@ public class Admin {
 		    }
 		    
 		    if(bestProduct != null)
-		    	System.out.println(bestProduct.toString());
+		    	logger.info(bestProduct.toString());
 		    return bestProduct;
 	}
 
@@ -272,7 +414,7 @@ public class Admin {
 
 	public void showStaistics() {
 		for(User u1: MyApp.Users) {
-			System.out.println("User Name:"+u1.getUserName()+"City:"+u1.getCity());
+			logger.info("User Name:"+u1.getUserName()+"City:"+u1.getCity());
 			
 		}
 		
@@ -284,7 +426,7 @@ public class Admin {
 		for(User u1 : users) {
 			if(u1.getFeedback()!="") {
 				
-			    System.out.println(u1.getUserName()+":"+u1.getFeedback());
+			    logger.info(u1.getUserName()+":"+u1.getFeedback());
 			    showfeedbacks=true;
 			 
 			}
@@ -301,7 +443,7 @@ public class Admin {
 	public void showRecipes() {
 		
 		for(recipes re1 : MyApp.recipess) {
-			System.out.println(re1.toString());
+			logger.info(re1.toString());
 			
 		}
 		
@@ -309,7 +451,7 @@ public class Admin {
 
 	public boolean accepteRecipe(String recipeName) {
 		if(recipeName == null || recipeName.isEmpty()) {
-			System.out.println("enter valid recipe name");
+			logger.info("enter valid recipe name");
 			return false;
 		}
 		
@@ -320,7 +462,7 @@ public class Admin {
 			}
 		}
 		
-		System.out.println("this recipe not fount in the list");
+		logger.info("this recipe not fount in the list");
 		return false;
 	}
 	
@@ -329,7 +471,7 @@ public class Admin {
 
 	public boolean deleteRecipe(String recipeName) {
 		if(recipeName == null || recipeName.isEmpty()) {
-			System.out.println("enter valid recipe name");
+			logger.info("enter valid recipe name");
 			return false;
 		}
 		
@@ -340,7 +482,7 @@ public class Admin {
 			}
 		}
 		
-		System.out.println("this recipe not fount in the list");
+		logger.info("this recipe not fount in the list");
 		return false;
 	}
 	
