@@ -4,11 +4,13 @@ package MyAPP_Sweet_mgt2024;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MyApp {
 	
+	private static final Logger logger = Logger.getLogger(MyApp.class.getName());
 	Scanner scanner = new Scanner(System.in);
 	
 	private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
@@ -99,7 +101,7 @@ public class MyApp {
 			 
 		 }
 		 else {
-			 System.out.println("invalid user name or password");
+			 logger.info("invalid user name or password");
 			 
 			 return;
 		 }
@@ -117,7 +119,7 @@ public class MyApp {
 
 
 	public void invaldloginMessage() {
-		System.out.println("invalid Admin user Name OR Password");
+		logger.info("invalid Admin user Name OR Password");
 		
 	}
 	
@@ -210,7 +212,7 @@ public class MyApp {
 		}
 		
 		if(counter == this.StoreOwnerList.size()) {
-			System.out.println("invalid store owner name or password");
+			logger.info("invalid store owner name or password");
 			
 		}
 		
@@ -239,17 +241,17 @@ public class MyApp {
 
 	public boolean SignupUser(String userName, String password, String userEmal, String city) {
 		if(userName==null || userName.matches("\\d+") == true ) {
-			System.out.println("please enter vaild user name!");
+			logger.info("please enter vaild user name!");
 			return false;
 		}
 		if(password == null || password.length()<8 ) {
-			System.out.println("please enter vaild password");
+			logger.info("please enter vaild password");
 			return false;
 		}
 		
 		for(User u1 : Users) {
 			if(userEmal.equals(u1.getEmail())) {
-				System.out.println("this email address is already exist");
+				logger.info("this email address is already exist");
 				return false;
 			}
 		}
@@ -258,7 +260,7 @@ public class MyApp {
 		Matcher matcher = pattern.matcher(userEmal);
 		
 		if(matcher.matches()== false) {
-			System.out.println("please enter vaild email format");
+			logger.info("please enter vaild email format");
 			return false;
 		}
 		
@@ -277,14 +279,14 @@ public class MyApp {
 	public User UserloginPage(String userName, String password) {
 		User u1 =null;
 		if(userName == null || userName.isEmpty() || userName.matches("\\d+") == true ) {
-			System.out.println("please enter vaild user name!");
+			logger.info("please enter vaild user name!");
 			user_sign_in_check=false;
 			return u1;
 		}
 		for(User u2 :Users) {
 		if(userName.equals(u2.getUserName())) {
 		if(password == null || password.length()<8 || password.isEmpty() ||!(u2.getPassord().equals(password))) {
-			System.out.println("please enter vaild password");
+			logger.info("please enter vaild password");
 			user_sign_in_check=false;
 			return u1;
 		}
@@ -300,7 +302,7 @@ public class MyApp {
 			
 		}
 		
-		System.out.println("this account is not found, please Sign-Up!");
+		logger.info("this account is not found, please Sign-Up!");
 		user_sign_in_check=false;
 		return u1;
 	}
@@ -316,9 +318,9 @@ public class MyApp {
 
 
 	public boolean browesDessert() {
-		System.out.println("DessertName | price | StoreName | numberofsalling | discount");
+		logger.info("DessertName | price | StoreName | numberofsalling | discount");
 		for(Product p1 : avalaibleProducts ) {
-			System.out.println(p1.getProductName()+"  | "+p1.getPrice()+" | "+p1.getStoreNmae()+" | "+p1.getNumberOfSalling()+" | "+p1.getDiscount());
+			logger.info(p1.getProductName()+"  | "+p1.getPrice()+" | "+p1.getStoreNmae()+" | "+p1.getNumberOfSalling()+" | "+p1.getDiscount());
 			
 		}
 		return true;
@@ -330,10 +332,10 @@ public class MyApp {
 
 	public boolean filterSugar(Integer sugerpercent) {
 		if(sugerpercent>=1 && sugerpercent<=3) {
-			System.out.println("DessertName | price | StoreName | numberofsalling | discount");
+			logger.info("DessertName | price | StoreName | numberofsalling | discount");
 			for(Product p1 : avalaibleProducts ) {
 				if(p1.getSugarDegree()==sugerpercent) {
-				System.out.println(p1.getProductName()+"  | "+p1.getPrice()+" | "+p1.getStoreNmae()+" | "+p1.getNumberOfSalling()+" | "+p1.getDiscount());
+				logger.info(p1.getProductName()+"  | "+p1.getPrice()+" | "+p1.getStoreNmae()+" | "+p1.getNumberOfSalling()+" | "+p1.getDiscount());
 				}
 			}
 			
@@ -351,7 +353,7 @@ public class MyApp {
 
 	public Product SearchonProduct(String productName) {
 		if(productName == null || productName.isEmpty() || productName.matches("\\d+") == true ) {
-			System.out.println("please enter valid productName!");
+			logger.info("please enter valid productName!");
 			return null;
 		}
 		
@@ -365,7 +367,7 @@ public class MyApp {
 			
 		}
 		
-		System.out.println("productName Not Found!");
+		logger.info("productName Not Found!");
 		return null;
 	}
 

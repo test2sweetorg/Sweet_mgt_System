@@ -2,13 +2,14 @@ package MyAPP_Sweet_mgt2024;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class User {
 	
 	 private static final Pattern NUMBER_PATTERN = Pattern.compile(".*\\d.*");
-	
+	 private static final Logger logger = Logger.getLogger(User.class.getName());
 	private String userName;
 	private String passord;
 	private String city;
@@ -108,13 +109,13 @@ public class User {
 
 	public boolean updateUserName(String newUserName) {
 		if(newUserName == null || newUserName.isEmpty() || newUserName.matches("\\d+") == true ) {
-			System.out.println("please enter valid new name");
+			logger.info("please enter valid new name");
 			return false;
 		}
 		
 		for(User u1 : MyApp.Users) {
 			if(u1.getUserName().equals(newUserName)) {
-				System.out.println("This name is already exist");
+				logger.info("This name is already exist");
 				return false;
 			}
 		}
@@ -126,7 +127,7 @@ public class User {
 
 	public boolean UpdateUserPassword(String newPssword) {
 		if(newPssword == null || newPssword.isEmpty()|| newPssword.length()<8) {
-			System.out.println("please enter valid password");
+			logger.info("please enter valid password");
 			return false;
 		}
 		 this.setPassord(newPssword);
@@ -137,12 +138,12 @@ public class User {
 	public boolean UpdateUserCity(String newCity) {
 		
 		if(newCity == null) {
-			System.out.println("please enter valid new city");
+			logger.info("please enter valid new city");
 			return false;
 		}
 		Matcher matcher = NUMBER_PATTERN.matcher(newCity);
 		if(newCity.isEmpty() || matcher.matches() == true ) {
-			System.out.println("please enter valid new city");
+			logger.info("please enter valid new city");
 			return false;
 		}
 		
@@ -153,12 +154,12 @@ public class User {
 
 	public boolean addrecipes(String recipeName, String discription) {
 		if(recipeName == null || recipeName.isEmpty()) {
-			System.out.println("please enter a valid recipe name");
+			logger.info("please enter a valid recipe name");
 			return false;
 			
 		}
 		if(discription == null || discription.isEmpty()) {
-			System.out.println("please enter a valid recipe discription");
+			logger.info("please enter a valid recipe discription");
 			return false;
 		}
 		recipes recipe1 = new recipes(recipeName,discription);
@@ -185,7 +186,7 @@ public class User {
 
 	public Product searchOnProductFromShoppingCard(String productName) {
 		if(productName == null || productName.isEmpty() || productName.matches("\\d+") == true ) {
-			System.out.println("please enter valid productName!");
+			logger.info("please enter valid productName!");
 			return null;
 		}
 		
@@ -199,7 +200,7 @@ public class User {
 			
 		}
 		
-		System.out.println("productName Not Found!");
+		logger.info("productName Not Found!");
 		return null;
 	}
 
@@ -269,7 +270,7 @@ public class User {
 		if(this.messages.isEmpty())
 			return false;
 		for(String s1 : this.messages ) {
-			System.out.println(s1);
+			logger.info(s1);
 			
 		}
 		return true;
@@ -289,7 +290,7 @@ public class User {
 
 	public void viewShoppingCard() {
 		for(Product p1: this.Shoppingcard) {
-			System.out.println(p1.toString());
+			logger.info(p1.toString());
 		}
 		
 	}

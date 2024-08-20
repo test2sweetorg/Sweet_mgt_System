@@ -31,7 +31,7 @@ public class userFeedBack_step {
 
 	@Then("I should see a list of all user feedback")
 	public void iShouldSeeAListOfAllUserFeedback() {
-	    assertTrue(app.systemAdmin.showfeedbacks);
+	    assertTrue(app.systemAdmin.isShowfeedbacks());
 	}
 
 }
