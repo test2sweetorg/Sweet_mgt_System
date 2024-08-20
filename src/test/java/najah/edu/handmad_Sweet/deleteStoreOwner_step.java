@@ -12,6 +12,7 @@ public class deleteStoreOwner_step {
 	
 	MyApp app;
 	int index;
+	boolean checkdeleteStoreOwner;
 	
 	
 	public deleteStoreOwner_step(MyApp app) {

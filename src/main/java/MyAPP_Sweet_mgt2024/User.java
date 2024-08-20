@@ -285,6 +285,14 @@ public class User {
 		
 		
 	}
+
+
+	public void viewShoppingCard() {
+		for(Product p1: this.Shoppingcard) {
+			System.out.println(p1.toString());
+		}
+		
+	}
 	
 	
 	

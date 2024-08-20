@@ -97,18 +97,41 @@ public class StoreOwner {
 	}
 
 	public void invaildproduct() {
-	   addproductsuccessfuly = false;
+		System.out.println("invalid product add");
+	   this.addproductsuccessfuly = false;
 		
 	}
 
-	public void addnewProduct(Product prod1) {
-		addproductsuccessfuly=true;
-		MyApp.avalaibleProducts.add(prod1);
+	public void addnewProduct(String productname, String StoreName, double price) {
+		
+		if(productname == null || productname.isEmpty() || StoreName == null || StoreName.isEmpty() ||price == 0.0 ) {
+			this.invaildproduct();
+			return;
+		}
+		
+		
+		for(Product p1 : MyApp.avalaibleProducts) {
+			if(p1.getProductName().equals(productname) && p1.getStoreNmae().equals(StoreName)) {
+				this.invaildproduct();
+				 return;
+				
+			}
+			
+			
+		}
+		Product pro = new Product(productname,StoreName,price);
+			this.addproductsuccessfuly=true;
+			MyApp.avalaibleProducts.add(pro);
+		
 		
 	}
 
 	public boolean deleteProduct(String productName) {
 		
+		if(productName == null || productName.isEmpty()) {
+			System.out.println("invalid product name");
+			return false;
+		}
 		
 		int index=0;
 		
@@ -122,7 +145,7 @@ public class StoreOwner {
 			}
 			index++;
 		}
-		
+		System.out.println("the product you need to remove does not exist");
 		return false;
 	}
 
@@ -141,11 +164,13 @@ public class StoreOwner {
 	}
 
 	public void invalidupdate() {
+		System.out.println("invalid update product");
 		updateproductseccessfully =false;
 		
 	}
 
 	public void validupdateProduct() {
+		System.out.println("the  updated successfully");
 		updateproductseccessfully =true;
 		
 	}
@@ -172,6 +197,10 @@ public class StoreOwner {
 	}
 
 	public void printDailyprofit(int year, int month , int day) {
+		if(year ==0 || month==0 || day ==0) {
+			System.out.println("invalid date");
+			return;
+		}
 		System.out.println("ProductName | StoreName | price | profit");
 		for( Product p1 : MyApp.salledProduct) {
 			if(p1.getSaleDate().getYear() == year && p1.getSaleDate().getMonthValue()==month && p1.getSaleDate().getDayOfMonth()==day &&p1.getStoreNmae().equals(this.StoreName)) {
@@ -187,6 +216,10 @@ public class StoreOwner {
 	}
 
 	public void printMonthlyprofit(int year, int month) {
+		if(year ==0 || month==0 ) {
+			System.out.println("invalid date");
+			return;
+		}
 		
 		System.out.println("ProductName | StoreName | price | profit");
 		for( Product p1 : MyApp.salledProduct) {
@@ -204,6 +237,10 @@ public class StoreOwner {
 	}
 
 	public void printYearlyprofit(int year) {
+		if(year ==0) {
+			System.out.println("invalid date");
+			return;
+		}
 		
 		System.out.println("ProductName | StoreName | price | profit");
 		for( Product p1 : MyApp.salledProduct) {
@@ -221,7 +258,9 @@ public class StoreOwner {
 
 	public Product getBestSellingProducts(String StoreName) {
 		 Product bestProduct = null;
-		 
+		    if(StoreName ==null || StoreName.isEmpty()) {
+		    	System.out.println("enter valid store name");
+		    }
 
 		    for (Product p : MyApp.avalaibleProducts) {
 		        if (p.getStoreNmae().equals(StoreName)) {
@@ -239,8 +278,10 @@ public class StoreOwner {
 		int index = -1;
 		
 		index = serchOnAProduct(productName);
-		if(index == -1)
+		if(index == -1) {
+			System.out.println("invalid product name");
 		return false;
+		}
 		else {
 			MyApp.avalaibleProducts.get(index).setDiscount(discount);
 			return true;
@@ -262,6 +303,7 @@ public class StoreOwner {
 	public void sendmassegeToUser(String userName, String message) {
 		int index =searchofUser(userName);
 		if(index == -1) {
+			System.out.println("user name not found in the system");
 			massegeSentToUser= false;
 		}
 		else {
@@ -313,6 +355,7 @@ public class StoreOwner {
 	public void showMessagesStoreOwner() {
 		if(this.userMessage.isEmpty()) {
 			veiwMassegesHistory=false;
+			System.out.println("the message history is empty");
 		}
 		else {
 		veiwMassegesHistory=true;
@@ -330,7 +373,7 @@ public class StoreOwner {
 	}
 
 	public boolean manageStoreName(String newStoreName) {
-		if(newStoreName.equals(null)) {
+		if(newStoreName==null || newStoreName.isEmpty() ) {
 			System.out.println("please Enter valid new name ");
 			return false;
 		}else {
@@ -355,7 +398,7 @@ public class StoreOwner {
 	
 
 	public boolean manageStoreOwnerName(String newStoreOwnerName) {
-		if(newStoreOwnerName==null) {
+		if(newStoreOwnerName==null || newStoreOwnerName.isEmpty()) {
 			System.out.println("invalid new Stroe Owner Name");
 			return false;
 		}else {
@@ -368,7 +411,7 @@ public class StoreOwner {
 	}
 
 	public boolean manegeStroeOwnerPassword(String newPassword) {
-		if(newPassword==null) {
+		if(newPassword==null || newPassword.isEmpty() ) {
 			System.out.println("invalid new Stroe Owner password");
 			return false;
 		}else {

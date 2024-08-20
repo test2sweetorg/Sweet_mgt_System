@@ -100,6 +100,7 @@ public class MyApp {
 		 }
 		 else {
 			 System.out.println("invalid user name or password");
+			 
 			 return;
 		 }
 	}
@@ -121,7 +122,7 @@ public class MyApp {
 	}
 	
 	
-	public void makeProductList(ArrayList<Product> arr1) {
+	public  void makeProductList(ArrayList<Product> arr1) {
 		
 		prod1.setNumberOfSalling(5);
 		prod2.setNumberOfSalling(4);
@@ -188,14 +189,42 @@ public class MyApp {
 	//***********StroeOwner
 
 
-	public void storeOwnernotLogin() {
+	public StoreOwner storeOwnernotLogin() {
+		StoreOwner storeownerr = null;
 		StoreOwner_is_loggedin=false;
+		this.addStoreOwnerList(this.StoreOwnerList);
+		Scanner scanner2 = new Scanner(System.in);
+		System.out.print("User Name:");
+		String username = scanner2.nextLine();
+		System.out.print("Enter your password: ");
+		String password = scanner2.nextLine();
+		int counter =0;
+		for(StoreOwner so1 : this.StoreOwnerList) {
+			if(so1.getStoreOwner_name().equals(username) && so1.getStoreOwner_password().equals(password)) {
+				storeownerr = so1;
+				this.loginAsStoreOwner();
+				
+				
+			}
+			
+		}
+		
+		if(counter == this.StoreOwnerList.size()) {
+			System.out.println("invalid store owner name or password");
+			
+		}
+		
+		return storeownerr;
+		
+		
+		
 		
 	}
 
 
 	public void loginAsStoreOwner() {
 		StoreOwner_is_loggedin=true;
+		
 		
 	}
 
@@ -245,31 +274,35 @@ public class MyApp {
 	}
 
 
-	public boolean UserloginPage(String userName, String password) {
-		
+	public User UserloginPage(String userName, String password) {
+		User u1 =null;
 		if(userName == null || userName.isEmpty() || userName.matches("\\d+") == true ) {
 			System.out.println("please enter vaild user name!");
-			return false;
+			user_sign_in_check=false;
+			return u1;
 		}
-		for(User u1 :Users) {
-		if(userName.equals(u1.getUserName())) {
-		if(password == null || password.length()<8 || password.isEmpty() ||!(u1.getPassord().equals(password))) {
+		for(User u2 :Users) {
+		if(userName.equals(u2.getUserName())) {
+		if(password == null || password.length()<8 || password.isEmpty() ||!(u2.getPassord().equals(password))) {
 			System.out.println("please enter vaild password");
-			return false;
+			user_sign_in_check=false;
+			return u1;
 		}
 		}
 		}
 		
-		for(User u1 : Users) {
-			if(u1.getUserName().equals(userName) && u1.getPassord().equals(password)) {
+		for(User u2 : Users) {
+			if(u2.getUserName().equals(userName) && u2.getPassord().equals(password)) {
 				user_sign_in_check = true;
-				return user_sign_in_check;
+				u1=u2;
+				return u1;
 			}
 			
 		}
 		
 		System.out.println("this account is not found, please Sign-Up!");
-		return false;
+		user_sign_in_check=false;
+		return u1;
 	}
 
 

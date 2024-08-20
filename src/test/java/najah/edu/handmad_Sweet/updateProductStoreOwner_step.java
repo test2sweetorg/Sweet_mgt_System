@@ -56,6 +56,27 @@ public class updateProductStoreOwner_step {
 	public void theProductNameShoudUpdatedSuccessfully() {
 	    assertTrue(app.SO1.updateproductseccessfully);
 	}
+	
+	@When("Store owner click on update product with invalid or new name name {string} to name {string}")
+	public void storeOwnerClickOnUpdateProductWithInvalidOrNewNameNameToName(String oldname, String newname) {
+		oldname="prod20";
+		newname="prod5";
+	   app.makeProductList(app.avalaibleProducts);
+		productfountindex =app.SO1.serchOnAProduct(oldname);
+		if(productfountindex == -1) {
+			app.SO1.invalidupdate();
+		}else {
+			newnameisalredyexist = app.SO1.serchOnAProduct(newname);
+			if(newnameisalredyexist != -1) {
+				app.SO1.invalidupdate();
+			}
+			else {
+				app.SO1.updateproductName(productfountindex,newname);
+				app.SO1.validupdateProduct();
+			}
+			
+		}
+	}
 
 	@Then("the product update failed")
 	public void theProductUpdateFailed() {

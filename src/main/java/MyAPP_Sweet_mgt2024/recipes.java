@@ -29,6 +29,11 @@ public class recipes {
 	public void setRecipeStatus(boolean recipeStatus) {
 		this.recipeStatus = recipeStatus;
 	}
+	@Override
+	public String toString() {
+		return "recipes [recipeName=" + recipeName + ", recipeDiscription=" + recipeDiscription + ", recipeStatus="
+				+ recipeStatus + "]";
+	}
 	
 	
 

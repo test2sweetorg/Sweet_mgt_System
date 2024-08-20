@@ -135,6 +135,17 @@ public class Product {
 	public void setSaleDate(LocalDate saleDate) {
 		this.saleDate = saleDate;
 	}
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "Product [productName=" + productName + ", StoreNmae=" + StoreNmae + ", numberOfSalling="
+				+ numberOfSalling + ", price=" + price + "]";
+	}
+	
 	
 	
 	

@@ -8,7 +8,7 @@ Then the product name shoud updated successfully
 
 Scenario: unSuccessfully update name of product
 Given Store owner is loggedW into the system
-When Store owner click on update product with name "prod1" to name "prod4"
+When Store owner click on update product with invalid or new name name "prod1" to name "prod4"
 Then the product update failed
 
 Scenario: Successfully update price an existing product
