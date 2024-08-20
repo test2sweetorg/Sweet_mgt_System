@@ -95,7 +95,7 @@ public class MyApp {
 		 System.out.print("Enter your password: ");
 		 String password = scanner.nextLine();
 		 
-		 if(username.equals(systemAdmin.getAdmin_name()) && password.equals(systemAdmin.getAdmin_password())) {
+		 if(username.equals(systemAdmin.getAdminname()) && password.equals(systemAdmin.getAdminpassword())) {
 			 
 			 this.loginAsAdmin();
 			 

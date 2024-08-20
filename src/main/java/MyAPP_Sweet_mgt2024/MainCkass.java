@@ -6,6 +6,16 @@ import java.util.logging.Logger;
 public class MainCkass {
 
 	public static void main(String[] args) {
+		
+		final String welcomtomgtsewwtsystem = "**********Welcome To Sweet Management System**********";
+		
+		
+		
+		
+		
+		
+		
+		
 		MyApp app = new MyApp();
 		StoreOwner Owner;
 		User user22;
@@ -13,7 +23,7 @@ public class MainCkass {
 		Scanner scanner = new Scanner(System.in);
 		
 		while(true) {
-		logger.info("**********Welcome To Sweet Management System**********");
+		logger.info(welcomtomgtsewwtsystem);
 		logger.info("1-Admin");
 		logger.info("2-Store Owner");
 		logger.info("3-User");
@@ -26,7 +36,7 @@ public class MainCkass {
 		 case 1:
 			 
 			 while(!adminExit) {
-				 logger.info("**********Welcome To Sweet Management System**********");
+				 logger.info(welcomtomgtsewwtsystem);
 				 logger.info("***********        Admin-dashbord           ************");
 				 app.notlogin();
 				 if(app.Admin_is_loggedin==true) {
@@ -39,21 +49,21 @@ public class MainCkass {
 						 logger.info("6-Manage the content shared on the system,recipes");
 						 logger.info("7-manage feedback");
 						 logger.info("8-exit");
-						 System.out.print("Enter your chooise please:");
+						 logger.info("Enter your chooise please:");
 						 int choice2 = scanner.nextInt();
 						 scanner.nextLine();
 						 switch(choice2) {
 						 case 1:
 							 Scanner scanner2 = new Scanner(System.in);
-							 System.out.print("Enter Store Owner Name: ");
+							 logger.info("Enter Store Owner Name: ");
 						      String storeOwnerName = scanner2.nextLine();
 						       
 						        
-						        System.out.print("Enter Store Owner Password: ");
+						        logger.info("Enter Store Owner Password: ");
 						        String storeOwnerPassword = scanner2.nextLine();
 						        
 						        
-						        System.out.print("Enter City: ");
+						        logger.info("Enter City: ");
 						        String storeCity = scanner2.nextLine();
 						       
 						        
@@ -66,7 +76,7 @@ public class MainCkass {
 					     
 						 case 2:
 							 Scanner scanner3 = new Scanner(System.in);
-							 System.out.print("Enter Store Owner name you want to delete");
+							 logger.info("Enter Store Owner name you want to delete");
 							 String storeOwnertoDeleteName =scanner3.nextLine();
 							 int index = app.systemAdmin.searchStoreOwner(storeOwnertoDeleteName);
 							 MyApp.systemAdmin.deletStoreOwner(index);
@@ -90,20 +100,20 @@ public class MainCkass {
 								 
 								 case 1:
 									 Scanner scanner5 = new Scanner(System.in);
-									 System.out.print("enter year");
+									 logger.info("enter year");
 									 int yaer = scanner5.nextInt();
-									 System.out.print("enter month");
+									 logger.info("enter month");
 									 int month = scanner5.nextInt();
-									 System.out.print("enter day");
+									 logger.info("enter day");
 									 int day = scanner5.nextInt();
 									 MyApp.systemAdmin.printDalyProfit(yaer, month, day);
 									 
 									 break;
 								 case 2:
 									 Scanner scanner6 = new Scanner(System.in);
-									 System.out.print("enter year");
+									 logger.info("enter year");
 									 int yaer1 = scanner6.nextInt();
-									 System.out.print("enter month");
+									 logger.info("enter month");
 									 int month1 = scanner6.nextInt();
 									 MyApp.systemAdmin.printMonthProfit(yaer1, month1);
 									 
@@ -111,7 +121,7 @@ public class MainCkass {
 									 
 								 case 3:
 									 Scanner scanner7 = new Scanner(System.in);
-									 System.out.print("enter year");
+									 logger.info("enter year");
 									 int yaer2 = scanner7.nextInt();
 									 MyApp.systemAdmin.printYearProfit(yaer2);
 									 
@@ -205,7 +215,7 @@ public class MainCkass {
              break;
          case 2:
         	 while(!userExite) {
-				 logger.info("**********Welcome To Sweet Management System**********");
+				 logger.info(welcomtomgtsewwtsystem);
 				 logger.info("***********        Store Owner-dashbord           ************");
 				 Owner=app.storeOwnernotLogin();
 				 if(app.StoreOwner_is_loggedin==true) {
@@ -215,7 +225,7 @@ public class MainCkass {
 						 logger.info("3-Account Management");
 						 logger.info("4-Order Management");
 						 logger.info("5-Exit");
-						 System.out.print("Enter your chooise please:");
+						 logger.info("Enter your chooise please:");
 						 int choiceStoreOwner = scanner.nextInt();
 						 scanner.nextLine();
 						 switch(choiceStoreOwner) {
@@ -230,18 +240,18 @@ public class MainCkass {
 								 logger.info("5-Identify best-selling products");
 								 logger.info("6-Implement dynamic discount features");
 								 logger.info("7-Exit");
-								 System.out.print("Enter your chooise please:");
+								 logger.info("Enter your chooise please:");
 								 int chooice5 = scanner.nextInt();
 								 scanner.nextLine();
 								 switch(chooice5) {
 								   
 								 case 1:
 									 Scanner scanner10 = new Scanner(System.in);
-									 System.out.print("Enter product name");
+									 logger.info("Enter product name");
 									 String prodname= scanner10.nextLine();
-									 System.out.print("Enter store name:Store[Storename]");
+									 logger.info("Enter store name:Store[Storename]");
 									 String StoreName = scanner10.nextLine();
-									 System.out.print("Enter the price");
+									 logger.info("Enter the price");
 									 double price = scanner10.nextDouble();
 									 app.makeProductList(MyApp.avalaibleProducts);
 									 Owner.addnewProduct(prodname, StoreName, price);
@@ -261,9 +271,9 @@ public class MainCkass {
 									 
 									 case 1:
 										 Scanner scanner30 = new Scanner(System.in);
-										 System.out.print("enter the old product name");
+										 logger.info("enter the old product name");
 										 String oldname = scanner30.nextLine();
-										 System.out.print("enter the new name");
+										 logger.info("enter the new name");
 										 String newname= scanner30.nextLine();
 										 app.makeProductList(MyApp.avalaibleProducts);
 										 
@@ -287,9 +297,9 @@ public class MainCkass {
 										 
 									 case 2:
 										 Scanner scanner31 = new Scanner(System.in);
-										 System.out.print("enter the product name");
+										 logger.info("enter the product name");
 										 String productnametochangeprice = scanner31.nextLine();
-										 System.out.print("enter the new price");
+										 logger.info("enter the new price");
 										 double newprice= scanner31.nextDouble();
 										 app.makeProductList(MyApp.avalaibleProducts);
 										 
@@ -321,7 +331,7 @@ public class MainCkass {
 								 case 3:
 									 app.makeProductList(MyApp.avalaibleProducts);
 									 Scanner scanner12 = new Scanner(System.in);
-									 System.out.print("Enter product name to remove");
+									 logger.info("Enter product name to remove");
 									 String prodtoremoveName= scanner12.nextLine();
 									 boolean indexremove =Owner.deleteProduct(prodtoremoveName);
 									 
@@ -336,17 +346,17 @@ public class MainCkass {
 										 logger.info("2-monitor monthly profit");
 										 logger.info("3-monitor yearly profit");
 										 logger.info("4-Exit");
-										 System.out.print("enter your chooice");
+										 logger.info("enter your chooice");
 										 int chooiceprofitOwner = scanner13.nextInt();
 										 
 										 switch(chooiceprofitOwner) {
 										 case 1:
 											 Scanner scanner14 = new Scanner(System.in);
-											 System.out.print("Enter yaer");
+											 logger.info("Enter yaer");
 											 int year = scanner14.nextInt();
-											 System.out.print("Enter month");
+											 logger.info("Enter month");
 											 int month = scanner14.nextInt();
-											 System.out.print("Enter day");
+											 logger.info("Enter day");
 											 int day = scanner14.nextInt();
 											 Owner.printDailyprofit(year, month, day);
 											 
@@ -354,9 +364,9 @@ public class MainCkass {
 											 
 										 case 2:
 											 Scanner scanner15 = new Scanner(System.in);
-											 System.out.print("Enter yaer");
+											 logger.info("Enter yaer");
 											 int year1 = scanner15.nextInt();
-											 System.out.print("Enter month");
+											 logger.info("Enter month");
 											 int month1 = scanner15.nextInt();
 											 Owner.printMonthlyprofit(year1, month1);
 											 
@@ -365,7 +375,7 @@ public class MainCkass {
 											 
 										 case 3:
 											 Scanner scanner16 = new Scanner(System.in);
-											 System.out.print("Enter yaer");
+											 logger.info("Enter yaer");
 											 int year12 = scanner16.nextInt();
 											 Owner.printYearlyprofit(year12);
 											 break;
@@ -392,7 +402,7 @@ public class MainCkass {
 								 case 5:
 									 Scanner scanner17 = new Scanner(System.in);
 									 app.makeProductList(MyApp.avalaibleProducts);
-									 System.out.print("Enter a Store name to see best selling product: ");
+									 logger.info("Enter a Store name to see best selling product: ");
 									 String bestproductname = scanner17.nextLine();
 									 Product bestsellig =Owner.getBestSellingProducts(bestproductname);
 									 if(bestsellig != null) {
@@ -404,9 +414,9 @@ public class MainCkass {
 								 case 6:
 									 app.makeProductList(MyApp.avalaibleProducts);
 									 Scanner scanner18 = new Scanner(System.in);
-									 System.out.print("Enter product name to make discount: ");
+									 logger.info("Enter product name to make discount: ");
 									 String dis_productname = scanner18.nextLine();
-									 System.out.print("Enter the discount[0...100]: ");
+									 logger.info("Enter the discount[0...100]: ");
 									 int discount = scanner18.nextInt();
 									 boolean discountPass = Owner.Discount(dis_productname, discount);
 									 
@@ -443,9 +453,9 @@ public class MainCkass {
 							 switch(camuna_chooice) {
 							      
 							 case 1:
-								 System.out.print("Enter User name: ");
+								 logger.info("Enter User name: ");
 								 String userName = scanner19.nextLine();
-								 System.out.print("Enter the message: ");
+								 logger.info("Enter the message: ");
 								 String messagetouser = scanner19.nextLine();
 								 Owner.sendmassegeToUser(userName, messagetouser);
 								
@@ -483,7 +493,7 @@ public class MainCkass {
 								 
 								 case 1:
 									 app.addStoreOwnerList(MyApp.StoreOwnerList);
-									 System.out.print("New Store Name: ");
+									 logger.info("New Store Name: ");
 									 String newStoreName =scanner20.nextLine();
 									boolean changeStoreNameCheck= Owner.manageStoreName(newStoreName);
 									 break;
@@ -531,7 +541,7 @@ public class MainCkass {
 								 logger.info("2-change statuse of order");
 								 logger.info("3-Delete Orders");
 								 logger.info("4-Exit");
-								 System.out.print("Enter your chooice: ");
+								 logger.info("Enter your chooice: ");
 								 int order_chooice = scanner21.nextInt();
 								 switch(order_chooice) {
 								  
@@ -542,13 +552,13 @@ public class MainCkass {
 									 break;
 									 
 								 case 2:
-									 System.out.print("Enter order id");
+									 logger.info("Enter order id");
 									 int orderid = scanner21.nextInt();
 									boolean changeOrderStatusCheck = Owner.changeOrderStatus(orderid);
 									 break;
 									 
 								 case 3:
-									 System.out.print("Enter order id");
+									 logger.info("Enter order id");
 									 int orderidde = scanner21.nextInt();
 									 boolean deleteOrderCheck = Owner.deleteOrder(orderidde); 
 									 
@@ -594,19 +604,19 @@ public class MainCkass {
         	 app.addStoreOwnerList(MyApp.StoreOwnerList);
         	 app.addrecipe(MyApp.recipess);
         	 while(!customerExit) {
-        	 logger.info("**********Welcome To Sweet Management System**********");
+        	 logger.info(welcomtomgtsewwtsystem);
 			 logger.info("***********        Store Owner-dashbord           ************");
 			 logger.info("1-login");
 			 logger.info("2-sign up");
 			 logger.info("3-Exit");
 			 Scanner scanner25 = new Scanner(System.in);
-			 System.out.print("Enter your role: ");
+			 logger.info("Enter your role: ");
 			 int useraccesschooice = scanner25.nextInt();
 			 switch(useraccesschooice){
 			 case 1:
 				 Scanner scanner26 = new Scanner(System.in);
 				 app.adduserList(MyApp.Users);
-				 System.out.print("Enter the user name: ");
+				 logger.info("Enter the user name: ");
 				 String user22name =scanner26.nextLine();
 				 logger.info("Enter the user password: ");
 				 String user22password = scanner26.nextLine();
@@ -623,7 +633,7 @@ public class MainCkass {
 						 logger.info("7-Provide feedback");
 						 logger.info("8-Exit..");
 						 Scanner scanner27 = new Scanner(System.in);
-						 System.out.print("Enter your chooice: ");
+						 logger.info("Enter your chooice: ");
 						 int userfeaturechooice = scanner27.nextInt();
 						 
 						 switch(userfeaturechooice) {
@@ -636,12 +646,12 @@ public class MainCkass {
 								 logger.info("2-Edit User password");
 								 logger.info("3- Edit User city");
 								 logger.info("4-Exit ..");
-								 System.out.print("Enter your modify role: ");
+								 logger.info("Enter your modify role: ");
 								 int modifyUserChooice = scanner28.nextInt();
 								 switch(modifyUserChooice) {
 								 case 1:
 									 Scanner scanner29 = new Scanner(System.in);
-									 System.out.print("Enter new Name: ");
+									 logger.info("Enter new Name: ");
 									 String newuserName =scanner29.nextLine();
 									 boolean checkEditUserName = user22.updateUserName(newuserName);
 									 break;
@@ -649,7 +659,7 @@ public class MainCkass {
 								 case 2:
 									 
 									 Scanner scanner30 = new Scanner(System.in);
-									 System.out.print("Enter new Password: ");
+									 logger.info("Enter new Password: ");
 									 String newuserPssword =scanner30.nextLine();
 									 boolean checkEditUserPassword = user22.UpdateUserPassword(newuserPssword);
 									 
@@ -657,7 +667,7 @@ public class MainCkass {
 									 
 								 case 3:
 									 Scanner scanner31 = new Scanner(System.in);
-									 System.out.print("Enter new City: ");
+									 logger.info("Enter new City: ");
 									 String newuserCity =scanner31.nextLine();
 									 boolean checkEditUserCity = user22.UpdateUserCity(newuserCity);
 									 
@@ -679,9 +689,9 @@ public class MainCkass {
 							 
 						 case 2:
 							 Scanner scanner32 = new Scanner(System.in);
-							 System.out.print("Enter recipe Name: ");
+							 logger.info("Enter recipe Name: ");
 							 String recipename = scanner32.nextLine();
-							 System.out.print("Enter recipe discription: ");
+							 logger.info("Enter recipe discription: ");
 							 String recipeDiscription = scanner32.nextLine();
 							boolean checkaddRecipes=user22.addrecipes(recipename,recipeDiscription);
 							 break;
@@ -692,13 +702,13 @@ public class MainCkass {
 							logger.info("are you want to search on i product??");
 							logger.info("1-yes");
 							logger.info("1-no");
-							System.out.print("yes/no ?");
+							logger.info("yes/no ?");
 							int searchchooice= scanner33.nextInt();
 							switch(searchchooice) {
 							
 							case 1:
 								Scanner scanner34 = new Scanner(System.in);
-								System.out.print("Enter product name: ");
+								logger.info("Enter product name: ");
 								String prodsearchname =scanner34.nextLine();
 								Product p1 = app.SearchonProduct(prodsearchname);
 								logger.info(p1.toString());
@@ -715,7 +725,7 @@ public class MainCkass {
 							 
 						 case 4:
 							 Scanner scanner35 = new Scanner(System.in);
-							 System.out.print("Enter suger degree 1 2 3: ");
+							 logger.info("Enter suger degree 1 2 3: ");
 							 int sugerdegree = scanner35.nextInt();
 							 boolean checkfilterDessert= app.filterSugar(sugerdegree);
 							 
@@ -730,13 +740,13 @@ public class MainCkass {
 								 logger.info("4-buy");
 								 logger.info("5-Exit..");
 								 Scanner scanner36 = new Scanner(System.in);
-								 System.out.print("Enter your chooice: ");
+								 logger.info("Enter your chooice: ");
 								 int buychooice = scanner36.nextInt();
 								 switch(buychooice) {
 								 
 								 case 1:
 									 Scanner scanner37 = new Scanner(System.in);
-									 System.out.print("product name: ");
+									 logger.info("product name: ");
 									 String puyproductname = scanner37.nextLine();
 									Product puyproduct = app.SearchonProduct(puyproductname);
 									boolean	checkproductaddtoshoppingcard = user22.addproducttoShoppingcard(puyproduct);
@@ -744,7 +754,7 @@ public class MainCkass {
 									 
 								 case 2:
 									 Scanner scanner38 = new Scanner(System.in);
-									 System.out.print("product name to remove: ");
+									 logger.info("product name to remove: ");
 									 String reomverproductname = scanner38.nextLine();
 									Product p11 = user22.searchOnProductFromShoppingCard(reomverproductname);
 									if(p11 !=null) {
@@ -781,14 +791,14 @@ public class MainCkass {
 							logger.info("veiw camunication history");
 							logger.info("3-Exit..");
 							 Scanner scanner39 = new Scanner(System.in);
-							System.out.print("Enter your role: ");
+							logger.info("Enter your role: ");
 							int camunicateChooice = scanner39.nextInt();
 							switch(camunicateChooice) {
 							case 1:
 								Scanner scanner40 = new Scanner(System.in);
-								System.out.print("Enter store Owner name: ");
+								logger.info("Enter store Owner name: ");
 								String storeOwnername =scanner40.nextLine();
-								System.out.print("Enter Message: ");
+								logger.info("Enter Message: ");
 								String messageTostoreOwner =scanner40.nextLine();
 								user22.sendmassegeToStoreOwner(storeOwnername, messageTostoreOwner );
 								break;
@@ -812,7 +822,7 @@ public class MainCkass {
 							 
 						 case 7:
 							 Scanner scanner41 = new Scanner(System.in);
-							 System.out.print("give us your feedback of the System: ");
+							 logger.info("give us your feedback of the System: ");
 							 String feedbackuser = scanner41.nextLine();
 							boolean UserFeedbackCheck = app.shaheen.addFeedback(feedbackuser);
 							
@@ -842,13 +852,13 @@ public class MainCkass {
 				Scanner scanner27 = new Scanner(System.in);
 				 app.adduserList(MyApp.Users);
 				 while(!usersignupsuccessfully) {
-					 System.out.print("Enter User name: ");
+					 logger.info("Enter User name: ");
 					 String Uname = scanner27.nextLine();
-					 System.out.print("Enter user password: ");
+					 logger.info("Enter user password: ");
 					 String Upassword = scanner27.nextLine();
-					 System.out.print("Enter user Email: ");
+					 logger.info("Enter user Email: ");
 					 String UEmail = scanner27.nextLine();
-					 System.out.print("Enter user city: ");
+					 logger.info("Enter user city: ");
 					 String UCity = scanner27.nextLine();
 					 boolean checkuserSignUp =app.SignupUser(Uname,Upassword,UEmail,UCity);
 					 if(checkuserSignUp == true) {

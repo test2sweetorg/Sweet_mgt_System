@@ -26,6 +26,7 @@ public class UserSignIn {
 	public void userIsInTheLogInPage() {
 	 
 	signinCheck =app.checkUsernotlogin();
+	
 		
 	}
 
@@ -41,7 +42,8 @@ public class UserSignIn {
 
 	@Then("User log_in successfully")
 	public void userLogInSuccessfully() {
-	    assertNotNull(signinCheck);
+		
+	    assertTrue(signinCheck);
 	}
 
 	@When("User enter invalid userName {string} and password {string}")
