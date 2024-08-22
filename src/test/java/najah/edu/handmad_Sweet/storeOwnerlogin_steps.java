@@ -56,10 +56,65 @@ public class storeOwnerlogin_steps {
 	public void theStoreOwnerShouldBeEnterTheDashboard() {
 	   assertTrue(app.StoreOwner_is_loggedin);
 	}
+	
+	@When("the StoreOwner enter invalid username {string} and password {string}")
+	public void theStoreOwnerEnterInvalidUsernameAndPassword(String username, String password) {
+		username ="samehT";
+		password="14144";
+		storeOwner1 = new StoreOwner(username,password);
+	}
+
+	@When("the StoreOwner click in loginQ")
+	public void theStoreOwnerClickInLoginQ() {
+		String excpectedUserName;
+		String excpectedPassword;
+		app.addStoreOwnerList(app.StoreOwnerList);
+	   for(StoreOwner s1: app.StoreOwnerList) {
+		   excpectedUserName= s1.getStoreOwner_name();
+		   excpectedPassword=s1.getStoreOwner_password();
+		   if(storeOwner1.getStoreOwner_name().equals(excpectedUserName) && storeOwner1.getStoreOwner_password().equals(excpectedPassword)) {
+			   
+			   app.loginAsStoreOwner();
+			   break;
+			   
+		   }
+		   
+	   }
+	}
 
 	@Then("invalid StoreOwner message disply")
 	public void invalidStoreOwnerMessageDisply() {
 	   
+		assertFalse(app.StoreOwner_is_loggedin);
+	}
+	
+	@When("the StoreOwner enter username {string} and invalid password {string}")
+	public void theStoreOwnerEnterUsernameAndInvalidPassword(String username, String password) {
+		username ="sameh";
+		password="141444654";
+		storeOwner1 = new StoreOwner(username,password);
+	}
+
+	@When("the StoreOwner click in loginB")
+	public void theStoreOwnerClickInLoginB() {
+		String excpectedUserName;
+		String excpectedPassword;
+		app.addStoreOwnerList(app.StoreOwnerList);
+	   for(StoreOwner s1: app.StoreOwnerList) {
+		   excpectedUserName= s1.getStoreOwner_name();
+		   excpectedPassword=s1.getStoreOwner_password();
+		   if(storeOwner1.getStoreOwner_name().equals(excpectedUserName) && storeOwner1.getStoreOwner_password().equals(excpectedPassword)) {
+			   
+			   app.loginAsStoreOwner();
+			   break;
+			   
+		   }
+		   
+	   }
+	}
+	
+	@Then("invalid StoreOwner message displyB")
+	public void invalidStoreOwnerMessageDisplyB() {
 		assertFalse(app.StoreOwner_is_loggedin);
 	}
 }

@@ -37,6 +37,9 @@ public class UserSignIn {
 		password = "54545454"; 
 		
 		u1 = app.UserloginPage(userName,password);
+		if (u1 !=null)
+			signinCheck= true;
+			
 	    
 	}
 

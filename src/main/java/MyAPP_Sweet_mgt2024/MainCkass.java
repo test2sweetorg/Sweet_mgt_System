@@ -226,8 +226,9 @@ public class MainCkass {
 						 logger.info("4-Order Management");
 						 logger.info("5-Exit");
 						 logger.info("Enter your chooise please:");
-						 int choiceStoreOwner = scanner.nextInt();
-						 scanner.nextLine();
+						 Scanner scanner200 = new Scanner(System.in);
+						 int choiceStoreOwner = scanner200.nextInt();
+						 scanner200.nextLine();
 						 switch(choiceStoreOwner) {
 						   
 						 case 1:
@@ -241,8 +242,9 @@ public class MainCkass {
 								 logger.info("6-Implement dynamic discount features");
 								 logger.info("7-Exit");
 								 logger.info("Enter your chooise please:");
-								 int chooice5 = scanner.nextInt();
-								 scanner.nextLine();
+								 Scanner scanner201 = new Scanner(System.in);
+								 int chooice5 = scanner201.nextInt();
+								 scanner201.nextLine();
 								 switch(chooice5) {
 								   
 								 case 1:
@@ -453,10 +455,12 @@ public class MainCkass {
 							 switch(camuna_chooice) {
 							      
 							 case 1:
+								 Scanner scanner202 = new Scanner(System.in);
 								 logger.info("Enter User name: ");
-								 String userName = scanner19.nextLine();
+								 String userName = scanner202.nextLine();
 								 logger.info("Enter the message: ");
-								 String messagetouser = scanner19.nextLine();
+								 
+								 String messagetouser = scanner202.nextLine();
 								 Owner.sendmassegeToUser(userName, messagetouser);
 								
 								 break;
@@ -492,25 +496,28 @@ public class MainCkass {
 								 switch(account_mgt_chooice) {
 								 
 								 case 1:
+									 Scanner scanner100 = new Scanner(System.in);
 									 app.addStoreOwnerList(MyApp.StoreOwnerList);
 									 logger.info("New Store Name: ");
-									 String newStoreName =scanner20.nextLine();
+									 String newStoreName =scanner100.nextLine();
 									boolean changeStoreNameCheck= Owner.manageStoreName(newStoreName);
 									 break;
 									 
 								 case 2:
+									 Scanner scanner101 = new Scanner(System.in);
 									 app.addStoreOwnerList(MyApp.StoreOwnerList);
 									 logger.info("Enter your new name: ");
-									 String stOwnerNewName=scanner20.nextLine();
+									 String stOwnerNewName=scanner101.nextLine();
 									boolean changeStoreOwnerNameCheck=app.SO1.manageStoreOwnerName(stOwnerNewName); 
 	
 									 break;
 									 
 									 
 								 case 3:
+									 Scanner scanner102 = new Scanner(System.in);
 									 app.addStoreOwnerList(MyApp.StoreOwnerList);
 									 logger.info("Enter your new name: ");
-									 String stOwnerNewPassword=scanner20.nextLine();
+									 String stOwnerNewPassword=scanner102.nextLine();
 									boolean changeStoreOwnerPasswordCheck = app.SO1.manegeStroeOwnerPassword(stOwnerNewPassword);
 									 
 									 break;
@@ -552,14 +559,16 @@ public class MainCkass {
 									 break;
 									 
 								 case 2:
+									 Scanner scanner204 = new Scanner(System.in);
 									 logger.info("Enter order id");
-									 int orderid = scanner21.nextInt();
+									 int orderid = scanner204.nextInt();
 									boolean changeOrderStatusCheck = Owner.changeOrderStatus(orderid);
 									 break;
 									 
 								 case 3:
+									 Scanner scanner205 = new Scanner(System.in);
 									 logger.info("Enter order id");
-									 int orderidde = scanner21.nextInt();
+									 int orderidde = scanner205.nextInt();
 									 boolean deleteOrderCheck = Owner.deleteOrder(orderidde); 
 									 
 									 break;
