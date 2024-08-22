@@ -46,8 +46,8 @@ public class storeOwneraddNewProduct {
 	@When("Store owner clicks on Add New Product with already existing productname {string} and storename {string} and price {string}")
 	public void storeOwnerClicksOnAddNewProductWithAlreadyExistingProductnameAndStorenameAndPrice(String productname, String storename, String price) {
 	    
-		productname="prod2";
-		storename="StroeA";
+		productname="prod1";
+		storename="StoreA";
 		price="30";
 		double price1=Double.parseDouble(price);
 		app.makeProductList(app.avalaibleProducts);

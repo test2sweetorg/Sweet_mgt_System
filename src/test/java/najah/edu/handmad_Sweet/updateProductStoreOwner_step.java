@@ -39,7 +39,7 @@ public class updateProductStoreOwner_step {
 			app.SO1.invalidupdate();
 		}else {
 			newnameisalredyexist = app.SO1.serchOnAProduct(newname);
-			if(newnameisalredyexist != -1) {
+			if(newnameisalredyexist == -1) {
 				app.SO1.invalidupdate();
 			}
 			else {
@@ -67,7 +67,7 @@ public class updateProductStoreOwner_step {
 			app.SO1.invalidupdate();
 		}else {
 			newnameisalredyexist = app.SO1.serchOnAProduct(newname);
-			if(newnameisalredyexist != -1) {
+			if(newnameisalredyexist == -1) {
 				app.SO1.invalidupdate();
 			}
 			else {
